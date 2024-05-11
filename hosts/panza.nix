@@ -108,6 +108,7 @@
 
 	fonts.packages = with pkgs ; [
 		iosevka
+		(nerdfonts.override {fonts = ["Iosevka"];})
 	];
 
 	programs.zsh.enable = true;
