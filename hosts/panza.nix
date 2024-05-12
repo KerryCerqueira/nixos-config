@@ -91,13 +91,18 @@
 # $ nix search wget
 	environment.systemPackages = with pkgs; [
 		kitty
+		# shell utils
 			ranger
-			neovide
 			gnumake
 			gcc
 			git
+			antidote
+			# editor utils
+			neovide
 	];
-
+	environment.variables = {
+		ZDOTDIR = "$HOME/.config/zsh";
+	};
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.
 # programs.mtr.enable = true;
@@ -111,7 +116,12 @@
 		(nerdfonts.override {fonts = ["Iosevka"];})
 	];
 
-	programs.zsh.enable = true;
+	programs.zsh = {
+		enable = true;
+		interactiveShellInit = ''
+			source ${pkgs.antidote}/share/antidote/antidote.zsh
+		'';
+	};
 	users.defaultUserShell = pkgs.zsh;
 
 	programs.neovim = {
