@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 	imports =
@@ -97,8 +97,20 @@
 			gcc
 			git
 			antidote
+			ripgrep
+			fd
 			# editor utils
 			neovide
+			xclip
+			## LSPs
+			lua-language-server
+			taplo
+			nodePackages_latest.pyright
+			ruff-lsp
+			texlab
+			nil
+			# tex
+			texliveFull
 	];
 	environment.variables = {
 		ZDOTDIR = "$HOME/.config/zsh";
