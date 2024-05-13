@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, configRoot, stateVersion, ... }:
 
 {
 	imports =
@@ -22,7 +22,7 @@
 	boot.loader.efi.canTouchEfiVariables = true;
 
 	networking.hostName = "panza"; # Define your hostname.
-# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+# networking.wireless.enable = true;  #Enables wireless support via wpa_supplicant.
 
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";
@@ -99,6 +99,7 @@
 			antidote
 			ripgrep
 			fd
+			htop
 			# editor utils
 			neovide
 			xclip
@@ -157,6 +158,5 @@
 # this value at the release version of the first install of this system.
 # Before changing this value read the documentation for this option
 # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-	system.stateVersion = "23.11"; # Did you read the comment?
-
+	system.stateVersion = stateVersion; # Did you read the comment?
 }
