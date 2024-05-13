@@ -46,8 +46,8 @@
 
 # Configure keymap in X11
 	services.xserver = {
-		layout = "us";
-		xkbVariant = "";
+		xkb.layout = "us";
+		xkb.variant = "";
 	};
 
 # Enable CUPS to print documents.
@@ -78,10 +78,6 @@
 		isNormalUser = true;
 		description = "Kerry Cerqueira";
 		extraGroups = [ "networkmanager" "wheel" ];
-		packages = with pkgs; [
-			firefox
-#  thunderbird
-		];
 	};
 
 # Allow unfree packages
@@ -91,31 +87,11 @@
 # $ nix search wget
 	environment.systemPackages = with pkgs; [
 		kitty
-		# shell utils
-			ranger
-			gnumake
-			gcc
-			git
-			antidote
-			ripgrep
-			fd
-			htop
-			# editor utils
-			neovide
-			xclip
-			## LSPs
-			lua-language-server
-			taplo
-			nodePackages_latest.pyright
-			ruff-lsp
-			texlab
-			nil
-			# tex
-			texliveFull
+		easyeffects
 	];
-	environment.variables = {
-		ZDOTDIR = "$HOME/.config/zsh";
-	};
+	#environment.variables = {
+	#	ZDOTDIR = "$HOME/.config/zsh";
+	#};
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.
 # programs.mtr.enable = true;
@@ -129,17 +105,15 @@
 		(nerdfonts.override {fonts = ["Iosevka"];})
 	];
 
-	programs.zsh = {
-		enable = true;
-		interactiveShellInit = ''
-			source ${pkgs.antidote}/share/antidote/antidote.zsh
-		'';
-	};
 	users.defaultUserShell = pkgs.zsh;
-
-	programs.neovim = {
-		enable = true;
-		defaultEditor = true;
+	programs = {
+		zsh.enable = true;
+		dconf.enable = true;
+		firefox.enable = true;
+		neovim = {
+			enable = true;
+			defaultEditor = true;
+		};
 	};
 # List services that you want to enable:
 

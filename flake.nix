@@ -2,7 +2,7 @@
 	description = "Kerry Cerqueira's NixOS system configurations.";
 
 	inputs = {
-		nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -13,18 +13,26 @@
 		let
 			system = "x86_64-linux";
 			stateVersion = "23.11";
+			configRoot = self;
+			specialArgs = {
+				inherit home-manager nixpkgs system stateVersion configRoot;
+			};
 		in {
 			nixosConfigurations = {
 				inherit system;
 				panza = nixpkgs.lib.nixosSystem {
+					inherit specialArgs;
 					modules = [
 						./hosts/panza.nix
-						./userss/kerry/home.nix
+						home-manager.nixosModules.home-manager
+						{
+							home-manager.useGlobalPkgs = true;
+							home-manager.useUserPackages = true;
+							home-manager.users.kerry = import ./users/kerry/home.nix;
+							home-manager.backupFileExtension = "bkp";
+							home-manager.extraSpecialArgs = specialArgs;
+						}
 					];
-					specialArgs = {
-						inherit home-manager nixpkgs system stateVersion;
-						configRoot = self;
-					};
 				};
 			};
 		};
