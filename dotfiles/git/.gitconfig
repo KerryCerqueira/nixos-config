@@ -1,0 +1,18 @@
+[user]
+	name = Kerry Cerqueira
+	email = kerrycerqueira@gmail.com
+[core]
+	editor = nvim
+	pager = less -FX
+[color]
+	branch = auto
+	diff = auto
+[diff]
+	renames = true
+[merge]
+	conflicstyle = diff3
+[alias]
+	dot = !git --git-dir=/home/kerry/.config/dotfiles --work-tree=/home/kerry
+	edit = !nvim $(git rev-parse --show-toplevel)
+[protocol "file"]
+	allow = always
