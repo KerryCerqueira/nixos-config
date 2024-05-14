@@ -34,6 +34,20 @@
 						}
 					];
 				};
+				potato = nixpkgs.lib.nixosSystem {
+					inherit specialArgs;
+					modules = [
+						./hosts/potato
+						home-manager.nixosModules.home-manager
+						{
+							home-manager.useGlobalPkgs = true;
+							home-manager.useUserPackages = true;
+							home-manager.users.erika = import ./users/erika/home.nix;
+							home-manager.backupFileExtension = "bkp";
+							home-manager.extraSpecialArgs = specialArgs;
+						}
+					];
+				};
 			};
 		};
 }
