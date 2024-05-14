@@ -4,7 +4,11 @@
 	home.username = "kerry";
 	home.homeDirectory = "/home/kerry";
 	home.stateVersion = "23.11";
-	programs.home-manager.enable = true;
+	programs = {
+		home-manager.enable = true;
+		vscode.enable = true;
+		zathura.enable = true;
+	};
 	home.packages = with pkgs; [
 		zsh
 		#shell utilities
@@ -19,8 +23,10 @@
 		git
 		neovide
 		xclip
+		jdk
 		# LSPs
 		lua-language-server
+		jdt-language-server
 		taplo
 		nodePackages_latest.pyright
 		ruff-lsp
@@ -28,8 +34,15 @@
 		nil
 		# tex
 		texliveFull
+		# python
+		# TODO: create shell.nix to run FHS for this
+		micromamba
 		# desktop apps
 		keepassxc
+		xournalpp
+		gimp
+		discord
+		slack
 	];
 	services = {
 		easyeffects = {
