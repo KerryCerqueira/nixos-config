@@ -23,7 +23,7 @@
 				panza = nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
-						./hosts/panza.nix
+						./hosts/panza
 						home-manager.nixosModules.home-manager
 						{
 							home-manager.useGlobalPkgs = true;
