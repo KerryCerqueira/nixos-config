@@ -8,6 +8,7 @@
 		home-manager.enable = true;
 		vscode.enable = true;
 		zathura.enable = true;
+		firefox.enable = true;
 	};
 	home.packages = with pkgs; [
 		zsh
@@ -43,6 +44,7 @@
 		gimp
 		discord
 		slack
+		thunderbird
 	];
 	services = {
 		easyeffects = {
