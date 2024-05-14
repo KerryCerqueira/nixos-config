@@ -68,6 +68,9 @@
 # Enable CUPS to print documents.
 	services.printing.enable = true;
 
+# hardware specific options
+	hardware.sensor.iio.enable = true;
+	services.fprintd.enable = true;
 # Enable sound with pipewire.
 	sound.enable = true;
 	hardware.pulseaudio.enable = false;
