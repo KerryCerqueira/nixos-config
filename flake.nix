@@ -7,15 +7,19 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		nvim-config = {
+			url = "github:KerryCerqueira/nvim-config";
+			flake = false;
+		};
 	};
 
-	outputs = { self, home-manager, nixpkgs, ... }@inputs:
+	outputs = { self, home-manager, nixpkgs, nvim-config, ... }@inputs:
 		let
 			system = "x86_64-linux";
 			stateVersion = "23.11";
 			configRoot = self;
 			specialArgs = {
-				inherit home-manager nixpkgs system stateVersion configRoot;
+				inherit home-manager nixpkgs nvim-config system stateVersion configRoot;
 			};
 		in {
 			nixosConfigurations = {
