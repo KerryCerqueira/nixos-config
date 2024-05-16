@@ -36,10 +36,27 @@
         "type": "github"
       }
     },
+    "nvim-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715665206,
+        "narHash": "sha256-TH/04Qzq41fHL3rUEZ4mKNokgMaeITJl2HcagigGbDE=",
+        "owner": "KerryCerqueira",
+        "repo": "nvim-config",
+        "rev": "59a060ca3ed94dd8818f1feb0084c7a15e07ccdd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KerryCerqueira",
+        "repo": "nvim-config",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nvim-config": "nvim-config"
       }
     }
   },
