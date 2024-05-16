@@ -6,9 +6,14 @@
 	home.stateVersion = "23.11";
 	programs = {
 		home-manager.enable = true;
-		vscode.enable = true;
 		zathura.enable = true;
 		firefox.enable = true;
+		vscode = {
+			enable = true;
+			package = pkgs.vscode.fhsWithPackages (ps: with ps; [
+					jdk
+			]);
+		};
 	};
 	home.packages = with pkgs; [
 		zsh
