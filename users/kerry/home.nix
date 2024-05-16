@@ -50,6 +50,8 @@
 		discord
 		slack
 		thunderbird
+		zoom-us
+		teams-for-linux
 	];
 	services = {
 		easyeffects = {
