@@ -1,4 +1,4 @@
-{ pkgs, configRoot, ... }:
+{ pkgs, configRoot, nvim-config, ... }:
 
 {
 	home.username = "kerry";
@@ -60,17 +60,23 @@
 		};
 	};
 	home.file = {
-		".config/zsh/zshrc".source = "${configRoot}/dotfiles/zsh/zshrc";
+		".config/zsh/zshrc".source =
+			"${configRoot}/dotfiles/zsh/zshrc";
 		".config/zsh/.zshrc".text  = ''
 			source ${pkgs.antidote}/share/antidote/antidote.zsh
 			source ''${HOME}/.config/zsh/zshrc
 		'';
-		".config/zsh/p10k.zsh".source = "${configRoot}/dotfiles/zsh/p10k.zsh";
-		".config/zsh/zsh_plugins.conf".source
-			= "${configRoot}/dotfiles/zsh/zsh_plugins.conf";
+		".config/zsh/p10k.zsh".source =
+			"${configRoot}/dotfiles/zsh/p10k.zsh";
+		".config/zsh/zsh_plugins.conf".source =
+			"${configRoot}/dotfiles/zsh/zsh_plugins.conf";
 		".config/easyeffects/" = {
 			source = "${configRoot}/dotfiles/easyeffects/";
 			recursive = true;
 		};
+		".config/nvim/" = {
+			source = "${nvim-config}";
+		 	recursive = true;
+		 };
 	};
 }
