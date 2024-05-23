@@ -52,6 +52,7 @@
 		thunderbird
 		zoom-us
 		teams-for-linux
+		rnote
 	];
 	services = {
 		easyeffects = {
@@ -76,7 +77,7 @@
 		};
 		".config/nvim/" = {
 			source = "${nvim-config}";
-		 	recursive = true;
-		 };
+			recursive = true;
+		};
 	};
 }
