@@ -52,6 +52,7 @@
 		libreoffice
 		thunderbird
 		zoom-us
+		rnote
 	];
 	home.file = {
 		".config/zsh/zshrc".source = "${configRoot}/dotfiles/zsh/zshrc";

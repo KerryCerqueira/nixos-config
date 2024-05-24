@@ -1,12 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { pkgs, configRoot, stateVersion, ... }:
 
 {
 	imports = [
 		./hardware-configuration.nix
+		./hardware-configuration-xtra.nix
+		"${configRoot}/hosts/common/optional/gnome-minimal.nix"
 	];
 	system.stateVersion = stateVersion;
 	fileSystems."/home" = {
@@ -23,38 +21,11 @@
 	i18n.defaultLocale = "en_CA.UTF-8";
 	services.xserver.enable = true;
 	services.xserver.displayManager.gdm.enable = true;
-	services.xserver.desktopManager.gnome.enable = true;
-	environment.gnome.excludePackages = ( with pkgs; [
-			gnome-photos
-			gnome-tour
-	]) ++ (with pkgs.gnome; [
-		gnome-music
-		gnome-terminal
-		epiphany
-		geary
-		evince
-		totem
-		tali
-		iagno
-		hitori
-		atomix
-	]);
 	services.xserver = {
 		xkb.layout = "us";
 		xkb.variant = "";
 	};
 	services.printing.enable = true;
-	hardware.sensor.iio.enable = true;
-	services.fprintd.enable = true;
-	sound.enable = true;
-	hardware.pulseaudio.enable = false;
-	security.rtkit.enable = true;
-	services.pipewire = {
-		enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
-	};
 	users.users.kerry = {
 		isNormalUser = true;
 		description = "Kerry Cerqueira";
