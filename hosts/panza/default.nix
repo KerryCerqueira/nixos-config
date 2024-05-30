@@ -1,4 +1,4 @@
-{ pkgs, configRoot, stateVersion, ... }:
+{ config, pkgs, configRoot, stateVersion, ... }:
 
 {
 	imports = [
@@ -13,7 +13,7 @@
 	};
 	nix.settings.experimental-features = ["nix-command" "flakes"];
 	boot.loader.systemd-boot.enable = true;
-	boot.loader.systemd-boot.configurationLimit = 1;
+	boot.loader.systemd-boot.configurationLimit = 2;
 	boot.loader.efi.canTouchEfiVariables = true;
 	networking.hostName = "panza";
 	networking.networkmanager.enable = true;
@@ -26,9 +26,27 @@
 		xkb.variant = "";
 	};
 	services.printing.enable = true;
+
+	sops = {
+		defaultSopsFile = "${configRoot}/secrets/secrets.yaml";
+		defaultSopsFormat = "yaml";
+		age.keyFile = "/home/kerry/.config/sops/age/keys.txt";
+		secrets = {
+			"hashedUserPasswords/kerry".neededForUsers = true;
+			"vpnConfs/bic" = {};
+			"encryptionKeys/age" = {};
+		};
+	};
+	services.openvpn.servers = {
+		bic = {
+			autoStart = false;
+			config = "config ${config.sops.secrets."vpnConfs/bic".path}";
+		};
+	};
 	users.users.kerry = {
 		isNormalUser = true;
 		description = "Kerry Cerqueira";
+		hashedPasswordFile = config.sops.secrets."hashedUserPasswords/kerry".path;
 		extraGroups = [ "networkmanager" "wheel" ];
 	};
 	nixpkgs.config.allowUnfree = true;
