@@ -20,6 +20,10 @@
 		#shell utilities
 		ranger
 		btop
+		# secrets tools
+		# TODO: Probably don't need these always available
+		sops
+		libsecret
 		# nvim dependencies
 		gnumake
 		gcc
@@ -41,7 +45,6 @@
 		# tex
 		texliveFull
 		# python
-		# TODO: create shell.nix to run FHS for this
 		micromamba
 		# desktop apps
 		keepassxc

@@ -7,19 +7,23 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		sops-nix = {
+			url = "github:Mic92/sops-nix";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		nvim-config = {
 			url = "github:KerryCerqueira/nvim-config";
 			flake = false;
 		};
 	};
 
-	outputs = { self, home-manager, nixpkgs, nvim-config, ... }@inputs:
+	outputs = { self, nixpkgs, home-manager, sops-nix, nvim-config, ... }@inputs:
 		let
 			system = "x86_64-linux";
 			stateVersion = "23.11";
 			configRoot = self;
 			specialArgs = {
-				inherit home-manager nixpkgs nvim-config system stateVersion configRoot;
+				inherit sops-nix home-manager nixpkgs nvim-config system stateVersion configRoot;
 			};
 		in {
 			nixosConfigurations = {
@@ -27,6 +31,7 @@
 				panza = nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
+						sops-nix.nixosModules.sops
 						./hosts/panza
 						home-manager.nixosModules.home-manager
 						{
