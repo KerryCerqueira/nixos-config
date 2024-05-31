@@ -2,15 +2,10 @@
 
 {
 	imports = [
-		./hardware-configuration.nix
-		./hardware-configuration-xtra.nix
+		./hardware
 		"${configRoot}/hosts/common/optional/gnome-minimal.nix"
 	];
 	system.stateVersion = stateVersion;
-	fileSystems."/home" = {
-		device = "/dev/disk/by-uuid/c67ed632-d694-454d-b39e-95322d23d0a5";
-		fsType = "ext4";
-	};
 	nix.settings.experimental-features = ["nix-command" "flakes"];
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.systemd-boot.configurationLimit = 2;
@@ -26,7 +21,7 @@
 		xkb.variant = "";
 	};
 	services.printing.enable = true;
-
+	services.fprintd.enable = true;
 	sops = {
 		defaultSopsFile = "${configRoot}/secrets/secrets.yaml";
 		defaultSopsFormat = "yaml";
@@ -41,6 +36,7 @@
 		bic = {
 			autoStart = false;
 			config = "config ${config.sops.secrets."vpnConfs/bic".path}";
+			updateResolvConf = true;
 		};
 	};
 	users.users.kerry = {
