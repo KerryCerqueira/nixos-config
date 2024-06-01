@@ -3,7 +3,7 @@
 {
 	imports = [
 		./hardware
-		"${configRoot}/hosts/common/optional/gnome-minimal.nix"
+		"${configRoot}/hosts/common/optional/gnome.nix"
 	];
 	system.stateVersion = stateVersion;
 	nix.settings.experimental-features = ["nix-command" "flakes"];
