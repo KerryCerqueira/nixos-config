@@ -56,6 +56,7 @@
 	];
 	environment.variables = {
 		ZDOTDIR = "$HOME/.config/zsh";
+		STEAM_FORCE_DESKTOPUI_SCALING = "2";
 	};
 	users.defaultUserShell = pkgs.zsh;
 	programs = {
