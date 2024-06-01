@@ -46,6 +46,9 @@
 		texliveFull
 		# python
 		micromamba
+		#rust
+		cargo
+		rustc
 		# desktop apps
 		keepassxc
 		xournalpp
