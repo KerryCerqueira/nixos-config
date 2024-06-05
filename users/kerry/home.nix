@@ -20,6 +20,17 @@
 		#shell utilities
 		ranger
 		btop
+		fzf
+		atuin
+		eza
+		tldr
+		bat
+		dust
+		powertop
+		xplr
+		## Already satisfied by nvim deps, but should be included here which this gets refactored
+		## fd
+		## ripgrep
 		# secrets tools
 		# TODO: Probably don't need these always available
 		sops
@@ -28,12 +39,12 @@
 		gnumake
 		gcc
 		antidote
-		fd
-		ripgrep
 		git
 		neovide
 		xclip
 		jdk
+		fd
+		ripgrep
 		# LSPs
 		lua-language-server
 		jdt-language-server
@@ -47,8 +58,7 @@
 		# python
 		micromamba
 		#rust
-		cargo
-		rustc
+		rustup
 		# desktop apps
 		keepassxc
 		xournalpp
