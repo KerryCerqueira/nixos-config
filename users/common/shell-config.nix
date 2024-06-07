@@ -2,13 +2,9 @@
 
 {
 	programs.zsh.enable = true;
-	environment.variables = {
+	home.sessionVariables = {
 		ZDOTDIR = "$HOME/.config/zsh";
 	};
-	fonts.packages = with pkgs ; [
-		iosevka
-		(nerdfonts.override {fonts = ["Iosevka"];})
-	];
 	home.packages = with pkgs; [
 		kitty
 		ranger
