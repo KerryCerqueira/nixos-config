@@ -1,4 +1,4 @@
-{ pkgs, nvim-config, ... }:
+{ pkgs, inputs, ... }:
 
 {
 	programs.neovim = {
@@ -34,7 +34,7 @@
 		rustup
 	];
 	home.file.".config/nvim/" = {
-		source = "${nvim-config}";
+		source = "${inputs.nvim-config}";
 		recursive = true;
 	};
 }

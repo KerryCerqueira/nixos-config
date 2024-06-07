@@ -1,8 +1,16 @@
-{ ... }:
+{ pkgs, configRoot, ... }:
 
 {
+	programs.zsh.enable = true;
+	environment.variables = {
+		ZDOTDIR = "$HOME/.config/zsh";
+	};
+	fonts.packages = with pkgs ; [
+		iosevka
+		(nerdfonts.override {fonts = ["Iosevka"];})
+	];
 	home.packages = with pkgs; [
-		#shell utilities
+		kitty
 		ranger
 		btop
 		fzf
@@ -13,19 +21,8 @@
 		dust
 		powertop
 		xplr
-		## Already satisfied by nvim deps, but should be included here which this gets refactored
-		## fd
-		## ripgrep
-		# desktop apps
-		keepassxc
-		xournalpp
-		gimp
-		discord
-		slack
-		thunderbird
-		zoom-us
-		teams-for-linux
-		rnote
+		fd
+		ripgrep
 	];
 	home.file = {
 		".config/zsh/zshrc".source =
