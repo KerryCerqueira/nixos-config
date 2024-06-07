@@ -1,13 +1,13 @@
-{ stateVersion, hostName, ... }:
+{ pkgs, config, stateVersion, hostName, ... }:
 
 {
 	imports = [
 		./hardware
-		../common/core/sops-nix.nix
 		../common/core/systemd-boot.nix
 		../common/optional/gnome.nix
 		../common/optional/steam.nix
 		../common/optional/vpn.nix
+		../common/optional/fonts.nix
 	];
 	system.stateVersion = stateVersion;
 	nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -24,6 +24,14 @@
 		xkb.variant = "";
 	};
 	services.printing.enable = true;
+	programs.zsh.enable = true;
+	users.users.kerry = {
+		isNormalUser = true;
+		description = "Kerry Cerqueira";
+		hashedPasswordFile = config.sops.secrets."hashedUserPasswords/kerry".path;
+		extraGroups = [ "networkmanager" "wheel" ];
+		shell = pkgs.zsh;
+	};
 	sops = {
 		defaultSopsFile = secrets/secrets.yaml;
 		defaultSopsFormat = "yaml";

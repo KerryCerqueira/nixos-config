@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ stateVersion, hostName, ... }:
+{ pkgs, stateVersion, hostName, ... }:
 
 
 {
@@ -11,6 +7,7 @@
 		../common/core/systemd-boot.nix
 		../common/optional/gnome.nix
 		../common/optional/steam.nix
+		../common/optional/fonts.nix
 	];
 	system.stateVersion = stateVersion;
 	nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -29,4 +26,10 @@
 		};
 	};
 	services.printing.enable = true;
+	users.users.erika = {
+		isNormalUser = true;
+		description = "Erika";
+		extraGroups = [ "networkmanager" "wheel" ];
+		shell = pkgs.zsh;
+	};
 }

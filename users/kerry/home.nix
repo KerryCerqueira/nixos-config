@@ -1,4 +1,4 @@
-{ config, pkgs, stateVersion, hostName, ... }:
+{ pkgs, stateVersion, hostName, ... }:
 
 {
 	imports = let
@@ -11,13 +11,6 @@
 			../common/vscode.nix
 			../common/shell-config.nix
 		] ++ conditionalImports;
-	users.users.kerry = {
-		isNormalUser = true;
-		description = "Kerry Cerqueira";
-		hashedPasswordFile = config.sops.secrets."hashedUserPasswords/kerry".path;
-		extraGroups = [ "networkmanager" "wheel" ];
-		shell = pkgs.zsh;
-	};
 	programs = {
 		home-manager.enable = true;
 		zathura.enable = true;
