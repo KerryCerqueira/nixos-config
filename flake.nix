@@ -22,19 +22,20 @@
 			system = "x86_64-linux";
 			stateVersion = "23.11";
 			configRoot = self;
-			specialArgs = {
-				inherit sops-nix home-manager nixpkgs nvim-config system stateVersion configRoot;
-			};
 		in {
 			nixosConfigurations = {
 				inherit system;
-				panza = nixpkgs.lib.nixosSystem {
+				panza = let
+					specialArgs = {
+						inherit inputs stateVersion configRoot;
+						hostName = "panza";
+					};
+				in nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
 						sops-nix.nixosModules.sops
 						./hosts/panza
-						home-manager.nixosModules.home-manager
-						{
+						home-manager.nixosModules.home-manager {
 							home-manager.useGlobalPkgs = true;
 							home-manager.useUserPackages = true;
 							home-manager.users.kerry = import ./users/kerry/home.nix;
@@ -43,7 +44,12 @@
 						}
 					];
 				};
-				potato = nixpkgs.lib.nixosSystem {
+				potato = let
+					specialArgs = {
+						inherit inputs stateVersion configRoot;
+						hostName = "potato";
+					};
+				in nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
 						./hosts/potato
