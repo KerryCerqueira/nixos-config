@@ -5,7 +5,7 @@
 	imports = [
 		./hardware
 		../common/core/systemd-boot.nix
-		../common/optional/gnome.nix
+		../common/optional/gnome
 		../common/optional/steam.nix
 		../common/optional/fonts.nix
 	];
