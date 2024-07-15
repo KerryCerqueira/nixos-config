@@ -9,7 +9,6 @@
 		# nvim dependencies
 		gnumake
 		gcc
-		antidote
 		git
 		neovide
 		xclip
