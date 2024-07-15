@@ -21,7 +21,7 @@
 		lua-language-server
 		jdt-language-server
 		taplo
-		nodePackages_latest.pyright
+		pyright
 		ruff-lsp
 		texlab
 		nil
