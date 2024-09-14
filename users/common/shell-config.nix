@@ -1,9 +1,6 @@
 { pkgs, inputs, ... }:
 
 {
-	home.sessionVariables = {
-		ZDOTDIR = "$HOME/.config/zsh";
-	};
 	home.packages = with pkgs; [
 		zsh
 		kitty
@@ -30,5 +27,6 @@
 			source = "${inputs.zsh-config}";
 			recursive = true;
 		};
+		".zshenv".text = "export ZDOTDIR=$HOME/.config/zsh/";
 	};
 }
