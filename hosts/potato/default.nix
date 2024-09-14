@@ -4,7 +4,7 @@
 	imports = [
 		./hardware
 		../common/core/systemd-boot.nix
-		../common/optional/gnome.nix
+		../common/optional/gnome
 		../common/optional/steam.nix
 		../common/optional/fonts.nix
 	];
@@ -25,7 +25,6 @@
 		};
 	};
 	services.printing.enable = true;
-	programs.zsh.enable = true;
 	users.users.erika = {
 		isNormalUser = true;
 		description = "Erika";

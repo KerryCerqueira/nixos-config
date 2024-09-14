@@ -15,6 +15,10 @@
 			url = "github:KerryCerqueira/nvim-config";
 			flake = false;
 		};
+		zsh-config = {
+			url = "github:KerryCerqueira/zsh-config";
+			flake = false;
+		};
 	};
 
 	outputs = { self, nixpkgs, home-manager, sops-nix, nvim-config, ... }@inputs:

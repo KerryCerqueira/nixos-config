@@ -4,7 +4,7 @@
 	imports = [
 		./hardware
 		../common/core/systemd-boot.nix
-		../common/optional/gnome-minimal.nix
+		../common/optional/gnome#minimal
 		../common/optional/steam.nix
 		../common/optional/vpn.nix
 		../common/optional/fonts.nix
@@ -35,7 +35,7 @@
 	sops = {
 		defaultSopsFile = secrets/secrets.yaml;
 		defaultSopsFormat = "yaml";
-		age.keyFile = config.sops.secrets."encryptionKeys/age".path;
+		age.keyFile = "/home/kerry/.config/sops/age/keys.txt";
 		secrets = {
 			"hashedUserPasswords/kerry".neededForUsers = true;
 			"vpnConfs/bic" = {};

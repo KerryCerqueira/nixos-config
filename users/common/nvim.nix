@@ -9,7 +9,6 @@
 		# nvim dependencies
 		gnumake
 		gcc
-		antidote
 		git
 		neovide
 		xclip
@@ -22,7 +21,7 @@
 		lua-language-server
 		jdt-language-server
 		taplo
-		nodePackages_latest.pyright
+		pyright
 		ruff-lsp
 		texlab
 		nil
