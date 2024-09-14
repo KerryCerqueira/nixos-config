@@ -8,7 +8,6 @@
 	];
 	programs = {
 		home-manager.enable = true;
-		zathura.enable = true;
 		chromium.enable = true;
 		firefox.enable = true;
 	};
@@ -18,11 +17,8 @@
 		stateVersion = stateVersion;
 		packages = with pkgs; [
 			xournalpp
-			gimp
 			discord
-			slack
 			libreoffice
-			thunderbird
 			zoom-us
 			rnote
 		];

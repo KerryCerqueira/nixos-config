@@ -25,6 +25,7 @@
 		};
 	};
 	services.printing.enable = true;
+	programs.zsh.enable = true;
 	users.users.erika = {
 		isNormalUser = true;
 		description = "Erika";
