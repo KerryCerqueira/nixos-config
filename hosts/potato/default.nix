@@ -1,5 +1,4 @@
-{ pkgs, stateVersion, hostName, ... }:
-
+{ pkgs, config, stateVersion, hostName, ... }:
 
 {
 	imports = [
@@ -26,10 +25,21 @@
 		};
 	};
 	services.printing.enable = true;
+	programs.zsh.enable = true;
 	users.users.erika = {
 		isNormalUser = true;
 		description = "Erika";
 		extraGroups = [ "networkmanager" "wheel" ];
 		shell = pkgs.zsh;
+	};
+	sops = {
+		defaultSopsFile = secrets/secrets.yaml;
+		defaultSopsFormat = "yaml";
+		age.keyFile = /home/erika/.config/sops/age/keys.txt;
+		# age.keyFile = config.sops.secrets."encryptionKeys/age".path;
+		secrets = {
+			"hashedUserPasswords/erika".neededForUsers = true;
+			"encryptionKeys/age" = {};
+		};
 	};
 }

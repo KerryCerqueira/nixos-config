@@ -52,6 +52,7 @@
 				in nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
+						sops-nix.nixosModules.sops
 						./hosts/potato
 						home-manager.nixosModules.home-manager
 						{
