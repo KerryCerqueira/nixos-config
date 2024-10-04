@@ -21,6 +21,7 @@
 			libreoffice
 			zoom-us
 			rnote
+			vlc
 		];
 	};
 }
