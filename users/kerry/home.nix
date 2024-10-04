@@ -30,6 +30,7 @@
 			zoom-us
 			teams-for-linux
 			rnote
+			vlc
 		];
 	};
 }
