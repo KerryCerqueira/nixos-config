@@ -25,6 +25,7 @@
 			thunderbird
 			zoom-us
 			rnote
+			vlc
 		];
 	};
 }
