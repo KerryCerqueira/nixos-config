@@ -1,13 +1,13 @@
-{ configRoot, ... }:
+{ inputs, ... }:
 
 {
 	services.easyeffects = {
 		enable = true;
 		preset = "AdvancedAutoGain";
 	};
-	home.file = {
+	home.file = let root = inputs.self; in {
 		".config/easyeffects/" = {
-			source = "${configRoot}/dotfiles/easyeffects/";
+			source = "${root}/dotfiles/easyeffects/";
 			recursive = true;
 		};
 	};

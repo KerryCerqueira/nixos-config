@@ -1,4 +1,4 @@
-{ pkgs, stateVersion, ... }:
+{ pkgs, ... }:
 
 {
 	imports = [
@@ -15,7 +15,7 @@
 	home = {
 		username = "erika";
 		homeDirectory = "/home/erika";
-		stateVersion = stateVersion;
+		stateVersion = "23.11";
 		packages = with pkgs; [
 			xournalpp
 			gimp
