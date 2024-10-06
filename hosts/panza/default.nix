@@ -6,7 +6,6 @@
 		../common/core/systemd-boot.nix
 		../common/optional/hyprland.nix
 		../common/optional/steam.nix
-		../common/optional/vpn.nix
 		../common/optional/fonts.nix
 	];
 	system.stateVersion = "23.11";
