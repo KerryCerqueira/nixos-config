@@ -13,7 +13,6 @@
 		tldr
 		bat
 		dust
-		powertop
 		xplr
 		fd
 		ripgrep
