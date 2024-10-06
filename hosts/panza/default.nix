@@ -1,4 +1,4 @@
-{ pkgs, config, stateVersion, hostName, ... }:
+{ pkgs, config, hostName, ... }:
 
 {
 	imports = [
@@ -9,7 +9,7 @@
 		../common/optional/vpn.nix
 		../common/optional/fonts.nix
 	];
-	system.stateVersion = stateVersion;
+	system.stateVersion = "23.11";
 	nix.settings.experimental-features = ["nix-command" "flakes"];
 	nixpkgs.config.allowUnfree = true;
 	networking.hostName = hostName;

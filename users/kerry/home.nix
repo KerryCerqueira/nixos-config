@@ -1,4 +1,4 @@
-{ pkgs, stateVersion, hostName, ... }:
+{ pkgs, hostName, ... }:
 
 {
 	imports = let
@@ -19,7 +19,7 @@
 	home = {
 		username = "kerry";
 		homeDirectory = "/home/kerry";
-		stateVersion = stateVersion;
+		stateVersion = "23.11";
 		packages = with pkgs; [
 			keepassxc
 			xournalpp
