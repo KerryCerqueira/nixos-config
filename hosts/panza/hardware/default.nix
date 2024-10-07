@@ -5,6 +5,7 @@
 		./hardware-configuration.nix
 		./sound.nix
 		./gpu.nix
+		./bluetooth.nix
 	];
 	fileSystems."/home" = {
 		device = "/dev/disk/by-uuid/c67ed632-d694-454d-b39e-95322d23d0a5";
