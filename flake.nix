@@ -19,26 +19,31 @@
 			url = "github:KerryCerqueira/zsh-config";
 			flake = false;
 		};
+		hyprland = {
+			type = "git";
+			url = "https://github.com/hyprwm/Hyprland";
+			submodules = true;
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+		hyprspace = {
+			url = "github:KZDKM/Hyprspace";
+			inputs.hyprland.follows = "hyprland";
+		};
 	};
 
-	outputs = { self, nixpkgs, home-manager, sops-nix, nvim-config, ... }@inputs:
-		let
+	outputs = { nixpkgs, home-manager, sops-nix, ... } @inputs: {
+		nixosConfigurations = {
 			system = "x86_64-linux";
-			stateVersion = "23.11";
-			configRoot = self;
-		in {
-			nixosConfigurations = {
-				inherit system;
-				panza = let
-					specialArgs = {
-						inherit inputs stateVersion configRoot;
-						hostName = "panza";
-					};
-				in nixpkgs.lib.nixosSystem {
+			panza = let
+				specialArgs = {
+					inherit inputs;
+					hostName = "panza";
+				};
+			in nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
-						sops-nix.nixosModules.sops
 						./hosts/panza
+						sops-nix.nixosModules.sops
 						home-manager.nixosModules.home-manager {
 							home-manager.useGlobalPkgs = true;
 							home-manager.useUserPackages = true;
@@ -48,12 +53,12 @@
 						}
 					];
 				};
-				potato = let
-					specialArgs = {
-						inherit inputs stateVersion configRoot;
-						hostName = "potato";
-					};
-				in nixpkgs.lib.nixosSystem {
+			potato = let
+				specialArgs = {
+					inherit inputs;
+					hostName = "potato";
+				};
+			in nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
 						./hosts/potato
@@ -67,6 +72,6 @@
 						}
 					];
 				};
-			};
 		};
+	};
 }
