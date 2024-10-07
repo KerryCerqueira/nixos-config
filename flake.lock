@@ -298,11 +298,11 @@
     "nvim-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1721077143,
-        "narHash": "sha256-4iafPbpAOzozADAr6dBFgPsyAJquNQLFMg/c6O964rc=",
+        "lastModified": 1728332236,
+        "narHash": "sha256-FgHTGgVj8Jjf9G2XJNjYi0p0XoiFejW4CWclNK0B0ik=",
         "owner": "KerryCerqueira",
         "repo": "nvim-config",
-        "rev": "96ea88d2209e73fb8e69d0ffe0aecfb6dcc0ed36",
+        "rev": "9952c2fb402a569000f2c9f2c81ec7cdfe630bc5",
         "type": "github"
       },
       "original": {
