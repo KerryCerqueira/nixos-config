@@ -1,0 +1,131 @@
+[
+	{
+		"backlight/slider": {
+			"min": 5,
+			"max": 100,
+			"orientation": "horizontal",
+			"device": "intel_backlight"
+		},
+		"backlight": {
+			"device": "intel_backlight",
+			"format": "{icon} {percent}%",
+			"format-icons": [
+				"󰃝",
+				"󰃞",
+				"󰃟",
+				"󰃠"
+			],
+		},
+		"battery": {
+			"format": "{icon} {capacity}%",
+			"format-charging": "󰂄 {capacity}%",
+			"format-full": "{icon} {capacity}%",
+			"format-icons": [
+				"󰁺",
+				"󰁻",
+				"󰁼",
+				"󰁽",
+				"󰁾",
+				"󰁿",
+				"󰂀",
+				"󰂁",
+				"󰂂",
+				"󰁹"
+			],
+			"interval": 10,
+			"states": {
+				"critical": 10,
+				"warning": 20
+			},
+			"tooltip": true
+		},
+		"clock": {
+			"format": "{:%I:%M %p  %A %b %d}",
+			"interval": 1,
+			"tooltip": true,
+			"tooltip-format": "上午：高数\n下午：Ps\n晚上：Golang\n<tt>{calendar}</tt>"
+		},
+		"cpu": {
+			"format": "󰻠 {usage}%",
+			"interval": 1
+		},
+		"custom/launcher": {
+			"format": " ",
+			"on-click": "pkill rofi || ~/.config/rofi/launcher.sh",
+			"tooltip": false
+		},
+		"custom/powermenu": {
+			"format": "",
+			"on-click": "pkill rofi || ~/.config/rofi/powermenu.sh",
+			"tooltip": false
+		},
+		"hyprland/workspaces": {
+			"format": "{icon}",
+			"on-click": "activate"
+		},
+		"idle_inhibitor": {
+			"format": "{icon}",
+			"format-icons": {
+				"activated": "",
+				"deactivated": ""
+			},
+			"tooltip": false
+		},
+		"layer": "top",
+		"memory": {
+			"format": "󰍛 {percentage}%",
+			"interval": 1,
+			"states": {
+				"warning": 85
+			}
+		},
+		"modules-center": [
+			"clock"
+		],
+		"modules-left": [
+			"custom/launcher",
+			"hyprland/workspaces",
+		],
+		"modules-right": [
+			"tray",
+			"backlight",
+			"backlight/slider",
+			"pulseaudio",
+			"memory",
+			"cpu",
+			"battery",
+			"custom/powermenu",
+		],
+		"network": {
+			"format-disconnected": "󰯡 Disconnected",
+			"format-ethernet": "󰀂 {ifname} ({ipaddr})",
+			"format-linked": "󰖪 {essid} (No IP)",
+			"format-wifi": "󰖩 {essid}",
+			"interval": 1,
+			"tooltip": false
+		},
+		"position": "top",
+		"pulseaudio": {
+			"format": "{icon} {volume}%",
+			"format-icons": {
+				"default": [
+					"",
+					"",
+					""
+				]
+			},
+			"format-muted": "󰖁 Muted",
+			"on-click": "pamixer -t",
+			"scroll-step": 1,
+			"tooltip": false
+		},
+		"temperature": {
+			"format": " {temperatureC}°C",
+			"tooltip": false
+		},
+		"tray": {
+			"icon-size": 18,
+			"spacing": 8
+		}
+	}
+]
