@@ -29,9 +29,10 @@
 			url = "github:KZDKM/Hyprspace";
 			inputs.hyprland.follows = "hyprland";
 		};
+		catppuccin.url = "github:catppuccin/nix";
 	};
 
-	outputs = { nixpkgs, home-manager, sops-nix, ... } @inputs: {
+	outputs = { nixpkgs, home-manager, sops-nix, catppuccin, ... } @inputs: {
 		nixosConfigurations = {
 			system = "x86_64-linux";
 			panza = let
@@ -44,6 +45,7 @@
 					modules = [
 						./hosts/panza
 						sops-nix.nixosModules.sops
+						catppuccin.nixosModules.catppuccin
 						home-manager.nixosModules.home-manager {
 							home-manager.useGlobalPkgs = true;
 							home-manager.useUserPackages = true;

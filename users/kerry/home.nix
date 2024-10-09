@@ -3,13 +3,14 @@
 {
 	imports = let
 		conditionalImports = if hostName == "panza" then [
-		../common/easyeffects.nix
+			../common/easyeffects.nix
 		] else [];
 	in
 		[
-		../common/nvim.nix
+			../common/nvim.nix
 			../common/vscode.nix
 			../common/shell-config.nix
+			../common/hyprland.nix
 		] ++ conditionalImports;
 	programs = {
 		home-manager.enable = true;
