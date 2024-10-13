@@ -8,6 +8,9 @@ in
 	home.packages = with pkgs; [
 		papirus-icon-theme
 		qt6ct
+		nwg-drawer
+		nwg-displays
+		nwg-dock-hyprland
 	];
 	imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
 	qt = {
@@ -35,6 +38,13 @@ in
 		source = "${root}/dotfiles/waybar";
 		recursive = true;
 	};
+	# home.file.".config/hypr/config.d" = {
+	# 	source = "${root}/dotfiles/hypr/config.d";
+	# 	recursive = true;
+	# };
+	# home.file.".config/hypr/hyprpaper.conf".source = "${root}/dotfiles/hypr/hyprpaper.conf";
+	# home.file.".config/hypr/hyprlock.conf".source = "${root}/dotfiles/hypr/hyprlock.conf";
+	# home.file.".config/hypr/hypridle.conf".source = "${root}/dotfiles/hypr/hypridle.conf";
 	wayland.windowManager.hyprland = {
 		enable = true;
 		plugins = [
@@ -44,7 +54,12 @@ in
 		package = inputs.hyprland.packages.${system}.hyprland;
 		catppuccin.enable = true;
 	};
+	services.hyprpaper = {
+		enable = true;
+		settings = {
+			preload = "~/.config/hypr/images/fingerprint.jpg";
+			wallpaper = ",~/.config/hypr/images/fingerprint.jpg";
+		};
+	};
 	catppuccin.pointerCursor.enable = true;
-	# services.hyprpaper.enable = true;
-	# services.hypridle.enable = true;
 }

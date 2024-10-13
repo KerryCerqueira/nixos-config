@@ -71,7 +71,6 @@ in
 		# display configuration
 		wlr-randr
 		kanshi
-		wdisplays
 		# launcher
 		rofi-wayland
 		# hypr plugins
