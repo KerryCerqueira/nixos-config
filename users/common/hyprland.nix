@@ -23,9 +23,8 @@ in
 		font.name = "Noto Sans";
 		font.size = 10;
 		catppuccin.enable = true;
-		iconTheme = {
-			name = "Papirus-Dark";
-		};
+		iconTheme.name = "Papirus-Dark";
+		cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";
 	};
 	home.file.".config/qt6ct/qt6ct.conf".source = "${root}/dotfiles/qt6ct/qt6ct.conf";
 	home.file.".config/kdeglobals".text = ''
