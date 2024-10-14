@@ -7,9 +7,10 @@
 		] else [];
 	in
 		[
-		../common/nvim.nix
+			../common/nvim.nix
 			../common/vscode.nix
 			../common/shell-config.nix
+			../common/libreoffice.nix
 		] ++ conditionalImports;
 	programs = {
 		home-manager.enable = true;
