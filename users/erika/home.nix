@@ -5,6 +5,7 @@
 		../common/nvim.nix
 		../common/vscode.nix
 		../common/shell-config.nix
+		../common/libreoffice.nix
 	];
 	programs = {
 		home-manager.enable = true;
@@ -18,7 +19,8 @@
 		packages = with pkgs; [
 			xournalpp
 			discord
-			libreoffice
+			slack
+			thunderbird
 			zoom-us
 			rnote
 			vlc
