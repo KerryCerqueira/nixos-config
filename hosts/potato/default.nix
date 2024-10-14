@@ -32,14 +32,13 @@
 		extraGroups = [ "networkmanager" "wheel" ];
 		shell = pkgs.zsh;
 	};
-	sops = {
-		defaultSopsFile = secrets/secrets.yaml;
-		defaultSopsFormat = "yaml";
-		age.keyFile = /home/erika/.config/sops/age/keys.txt;
-		# age.keyFile = config.sops.secrets."encryptionKeys/age".path;
-		secrets = {
-			"hashedUserPasswords/erika".neededForUsers = true;
-			"encryptionKeys/age" = {};
-		};
-	};
+	# sops = {
+	# 	defaultSopsFile = secrets/secrets.yaml;
+	# 	defaultSopsFormat = "yaml";
+	# 	age.keyFile = "/home/erika/.config/sops/age/keys.txt";
+	# 	secrets = {
+	# 		"hashedUserPasswords/erika".neededForUsers = true;
+	# 		"encryptionKeys/age" = {};
+	# 	};
+	# };
 }
