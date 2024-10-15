@@ -35,6 +35,7 @@ in
 		waybar
 		# notification daemon
 		swaynotificationcenter
+		libnotify
 		# kde wayland support
 		kdePackages.qtwayland
 		# polkit agent
