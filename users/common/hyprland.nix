@@ -9,8 +9,9 @@ in
 		papirus-icon-theme
 		qt6ct
 		nwg-drawer
-		nwg-displays
 		nwg-dock-hyprland
+		nwg-displays
+		wdisplays
 	];
 	imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
 	qt = {
