@@ -25,6 +25,7 @@
 		ruff-lsp
 		texlab
 		nil
+		inputs.hyprls.packages.${system}.default
 		# tex
 		texliveFull
 		# python
