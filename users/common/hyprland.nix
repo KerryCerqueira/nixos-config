@@ -6,14 +6,13 @@ let
 in
 {
 	home.packages = with pkgs; [
-		papirus-icon-theme
-		qt6ct
 		nwg-drawer
 		nwg-dock-hyprland
 		nwg-displays
 		wdisplays
 	];
 	imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
+	catppuccin.pointerCursor.enable = true;
 	qt = {
 		enable = true;
 		platformTheme.name = "kvantum";
@@ -30,7 +29,7 @@ in
 		iconTheme.name = "Papirus-Dark";
 		cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";
 	};
-	home.file.".config/qt6ct/qt6ct.conf".source = "${root}/dotfiles/qt6ct/qt6ct.conf";
+	home.file.".config/qt5ct/qt5ct.conf".source = "${root}/dotfiles/qt5ct/qt5ct.conf";
 	home.file.".config/kdeglobals".text = ''
 	[General]
 		TerminalApplication=kitty
@@ -62,5 +61,4 @@ in
 			wallpaper = ",~/.config/hypr/images/fingerprint.jpg";
 		};
 	};
-	catppuccin.pointerCursor.enable = true;
 }

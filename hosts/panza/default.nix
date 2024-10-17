@@ -4,7 +4,7 @@
 	imports = [
 		./hardware
 		../common/core/systemd-boot.nix
-		../common/optional/hyprland.nix
+		../common/optional/hyprland
 		../common/optional/steam.nix
 		../common/optional/fonts.nix
 	];
