@@ -39,11 +39,107 @@
 			},
 			"tooltip": true
 		},
-		"clock": {
-			"format": "{:%I:%M %p  %A %b %d}",
-			"interval": 1,
+		"power-profiles-daemon": {
+			"format": "{icon}",
+			"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
 			"tooltip": true,
-			"tooltip-format": "上午：高数\n下午：Ps\n晚上：Golang\n<tt>{calendar}</tt>"
+			"format-icons": {
+				"default": " ",
+				"performance": " ",
+				"balanced": " ",
+				"power-saver": " "
+			}
+		},
+		"group/battery": {
+			"orientation": "inherit",
+			"drawer": {
+				"transition-duration": 500,
+				"transition-left-to-right": false,
+				"click-to-reveal": true,
+			},
+			"modules": [
+				"battery",
+				"power-profiles-daemon",
+			],
+		},
+		"group/power": {
+			"orientation": "inherit",
+			"drawer": {
+				"transition-duration": 500,
+				"transition-left-to-right": false,
+			},
+			"modules": [
+				"custom/power",
+				"custom/quit",
+				"custom/lock",
+				"custom/reboot",
+			]
+		},
+		"custom/quit": {
+			"format": "󰗼",
+			"tooltip": false,
+			"on-click": "hyprctl dispatch exit"
+		},
+		"custom/lock": {
+			"format": "󰍁",
+			"tooltip": false,
+			"on-click": "hyprlock"
+		},
+		"custom/reboot": {
+			"format": "󰜉",
+			"tooltip": false,
+			"on-click": "zenity --question --title='' --text='Reboot system?' && reboot",
+		},
+		"custom/power": {
+			"format": "",
+			"tooltip": false,
+			"on-click": "zenity --question --title='' --text='Poweroff system?' && shutdown now",
+		},
+		"custom/notification": {
+			"tooltip": false,
+			"format": "{} {icon}",
+			"format-icons": {
+				"notification": "󱅫",
+				"none": "",
+				"dnd-notification": " ",
+				"dnd-none": "󰂛",
+				"inhibited-notification": " ",
+				"inhibited-none": "",
+				"dnd-inhibited-notification": " ",
+				"dnd-inhibited-none": " ",
+			},
+			"return-type": "json",
+			"exec-if": "which swaync-client",
+			"exec": "swaync-client -swb",
+			"on-click": "sleep 0.1 && swaync-client -t -sw",
+			"on-click-right": "sleep 0.1 && swaync-client -d -sw",
+			"escape": true,
+		},
+		"clock": {
+			"format": "{:%H:%M}  ",
+			"format-alt": "{:%A, %B %d, %Y (%R)}  ",
+			"tooltip-format": "<tt><small>{calendar}</small></tt>",
+			"calendar": {
+				"mode"          : "year",
+				"mode-mon-col"  : 3,
+				"weeks-pos"     : "right",
+				"on-scroll"     : 1,
+				"on-click-right": "mode",
+				"format": {
+					"months":     "<span color='#ffead3'><b>{}</b></span>",
+					"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+					"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+					"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+					"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+				}
+			},
+			"actions": {
+				"on-click-right": "mode",
+				"on-click-forward": "tz_up",
+				"on-click-backward": "tz_down",
+				"on-scroll-up": "shift_up",
+				"on-scroll-down": "shift_down"
+			}
 		},
 		"cpu": {
 			"format": "󰻠 {usage}%",
@@ -51,25 +147,31 @@
 		},
 		"custom/launcher": {
 			"format": " ",
-			"on-click": "pkill rofi || ~/.config/rofi/launcher.sh",
+			"on-click": "pkill rofi || rofi -show drun",
 			"tooltip": false
 		},
-		"custom/powermenu": {
-			"format": "",
-			"on-click": "pkill rofi || ~/.config/rofi/powermenu.sh",
+		"custom/keyboard": {
+			"format": "󰌏 ",
+			"on-click": "kill -34 $(pidof wvkbd-mobintl)",
 			"tooltip": false
 		},
 		"hyprland/workspaces": {
-			"format": "{icon}",
-			"on-click": "activate"
+			// "format": "{icon}:{windows}",
+			// "on-click": "activate"
+			// "format": "{icon}",
+			// "window-rewrite-default": "",
+			"all-outputs": true,
+			"move-to-monitor": true,
+			"show-special": true,
+			"special-visible-only": true,
 		},
 		"idle_inhibitor": {
 			"format": "{icon}",
 			"format-icons": {
-				"activated": "",
-				"deactivated": ""
+				"activated": " ",
+				"deactivated": " "
 			},
-			"tooltip": false
+			"tooltip": true,
 		},
 		"layer": "top",
 		"memory": {
@@ -79,22 +181,36 @@
 				"warning": 85
 			}
 		},
+		"wlr/taskbar": {
+			"format": "{icon} {name}",
+			"icon-size": 14,
+			"icon-theme": "Numix-Circle",
+			"tooltip-format": "{title}",
+			"on-click": "activate",
+			"on-click-middle": "close",
+			"rewrite": {
+				"Firefox Web Browser": "Firefox",
+			},
+		},
 		"modules-center": [
-			"clock"
+			"hyprland/workspaces",
 		],
 		"modules-left": [
 			"custom/launcher",
-			"hyprland/workspaces",
+			"memory",
+			"cpu",
+			"temperature",
+			"wlr/taskbar",
 		],
 		"modules-right": [
 			"tray",
-			"backlight",
-			"backlight/slider",
+			"custom/keyboard",
+			"idle_inhibitor",
+			"custom/notification",
 			"pulseaudio",
-			"memory",
-			"cpu",
-			"battery",
-			"custom/powermenu",
+			"group/battery",
+			"group/power",
+			"clock",
 		],
 		"network": {
 			"format-disconnected": "󰯡 Disconnected",
@@ -115,7 +231,7 @@
 				]
 			},
 			"format-muted": "󰖁 Muted",
-			"on-click": "pamixer -t",
+			"on-click": "pavucontrol",
 			"scroll-step": 1,
 			"tooltip": false
 		},
