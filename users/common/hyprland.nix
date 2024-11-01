@@ -49,6 +49,7 @@ in
 		enable = true;
 		plugins = [
 			inputs.hyprspace.packages.${system}.Hyprspace
+			inputs.hyprgrass.packages.${system}.default
 		];
 		extraConfig = "source = ./config.d/general.conf";
 		package = inputs.hyprland.packages.${system}.hyprland;
