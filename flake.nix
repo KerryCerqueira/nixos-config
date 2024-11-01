@@ -29,6 +29,10 @@
 			url = "github:KZDKM/Hyprspace";
 			inputs.hyprland.follows = "hyprland";
 		};
+		hyprgrass = {
+			url = "github:horriblename/hyprgrass";
+			inputs.hyprland.follows = "hyprland";
+		};
 		hyprls.url = "github:hyprland-community/hyprls";
 		catppuccin.url = "github:catppuccin/nix";
 	};

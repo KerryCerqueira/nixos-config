@@ -48,5 +48,6 @@ in
 		# clipboard for non windowed applications
 		wl-clipboard
 		papirus-icon-theme
+		wvkbd
 	];
 }
