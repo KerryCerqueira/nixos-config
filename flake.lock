@@ -178,6 +178,26 @@
         "type": "github"
       }
     },
+    "hyprgrass": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ]
+      },
+      "locked": {
+        "lastModified": 1728485200,
+        "narHash": "sha256-0dYMlNYuevQvsd6+imOkic3c6RSssM8WSx1hAepJ/wU=",
+        "owner": "horriblename",
+        "repo": "hyprgrass",
+        "rev": "1535962f1575ab24f5dad6889ca868206bcc0eda",
+        "type": "github"
+      },
+      "original": {
+        "owner": "horriblename",
+        "repo": "hyprgrass",
+        "type": "github"
+      }
+    },
     "hyprland": {
       "inputs": {
         "aquamarine": "aquamarine",
@@ -462,6 +482,7 @@
       "inputs": {
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
+        "hyprgrass": "hyprgrass",
         "hyprland": "hyprland",
         "hyprls": "hyprls",
         "hyprspace": "hyprspace",
