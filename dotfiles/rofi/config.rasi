@@ -1,0 +1,19 @@
+configuration {
+	show-icons: true;
+	display-ssh:    "󰣀 ssh:";
+	display-run:    "󱓞 run:";
+	display-drun:   "󰣖 drun:";
+	display-window: "󱂬 window:";
+	display-combi:  "󰕘 combi:";
+	display-filebrowser: "󰉋 filebrowser:";
+	timeout {
+action: "kb-cancel";
+delay:  0;
+	}
+	filebrowser {
+		directories-first: true;
+		sorting-method:    "name";
+	}
+}
+
+@theme "~/.config/rofi/catppuccin-lavrent-mocha.rasi"
