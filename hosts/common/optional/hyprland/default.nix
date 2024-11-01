@@ -49,5 +49,6 @@ in
 		wl-clipboard
 		papirus-icon-theme
 		wvkbd
+		zenity
 	];
 }

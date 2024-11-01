@@ -20,5 +20,5 @@
 	powerManagement.enable = true;
 	powerManagement.powertop.enable = true;
 	services.thermald.enable = true;
-	services.tlp.enable = lib.mkDefault (!config.services.power-profiles-daemon.enable);
+	services.power-profiles-daemon.enable = true;
 }
