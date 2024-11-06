@@ -11,7 +11,10 @@ in
 		nwg-displays
 		wdisplays
 	];
-	imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
+	imports = [
+		inputs.catppuccin.homeManagerModules.catppuccin
+		./rofi.nix
+	];
 	catppuccin.pointerCursor.enable = true;
 	qt = {
 		enable = true;

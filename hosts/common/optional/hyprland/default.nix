@@ -1,7 +1,6 @@
 { pkgs, inputs, ... }:
 let
 	system = pkgs.stdenv.hostPlatform.system;
-	# hyprland-pkgs = hyprland.inputs.nixpkgs.legacyPackages.${system};
 in
 {
 	imports = [
@@ -41,8 +40,6 @@ in
 		# display configuration
 		wlr-randr
 		kanshi
-		# launcher
-		rofi-wayland
 		# hypr plugins
 		hyprshot
 		# clipboard for non windowed applications
