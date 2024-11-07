@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
-
-{
+let
+	root = inputs.self;
+in {
 	home.packages = with pkgs; [
 		zsh
 		kitty
@@ -11,11 +12,14 @@
 		atuin
 		eza
 		tldr
-		bat
 		dust
 		xplr
 		fd
 		ripgrep
+		bat
+		bat-extras.batman
+		bat-extras.batgrep
+		bat-extras.batdiff
 	];
 	home.file = {
 		".local/share/zsh/antidote/" = {
@@ -27,5 +31,9 @@
 			recursive = true;
 		};
 		".zshenv".text = "export ZDOTDIR=$HOME/.config/zsh/";
+		".config/bat/" = {
+			source = "${root}/dotfiles/bat/";
+			recursive = true;
+		};
 	};
 }
