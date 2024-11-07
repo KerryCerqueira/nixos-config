@@ -7,6 +7,7 @@
 		../common/optional/hyprland
 		../common/optional/steam.nix
 		../common/optional/fonts.nix
+		../common/optional/thunderbird.nix
 	];
 	system.stateVersion = "23.11";
 	nix.settings.experimental-features = ["nix-command" "flakes"];
