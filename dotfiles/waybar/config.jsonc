@@ -143,7 +143,8 @@
 		},
 		"cpu": {
 			"format": "󰻠 {usage}%",
-			"interval": 1
+			"interval": 1,
+			"on-click": "rofi -config ~/.config/rofi/conf.d/config.rasi -show top",
 		},
 		"custom/launcher": {
 			"format": " ",
