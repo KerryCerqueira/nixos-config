@@ -602,11 +602,11 @@
     "zsh-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1721073147,
-        "narHash": "sha256-yrhr1kwRk/GzyAbRRoEyiE+a6lStwhBXC+hWtbOyLZQ=",
+        "lastModified": 1731015494,
+        "narHash": "sha256-asNv4p8az2kjOHtSwZdFInsWbbxIekn0rT0Azk5xOZw=",
         "owner": "KerryCerqueira",
         "repo": "zsh-config",
-        "rev": "5c385928e45b4725e9cae1000e60c9385c527f55",
+        "rev": "5ba8bb5abf6072666c7ce68abde9840e444473d4",
         "type": "github"
       },
       "original": {
