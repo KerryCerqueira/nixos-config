@@ -32,6 +32,7 @@
 			teams-for-linux
 			rnote
 			vlc
+			spotify
 		];
 	};
 }
