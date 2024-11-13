@@ -14,6 +14,8 @@ in
 	imports = [
 		inputs.catppuccin.homeManagerModules.catppuccin
 		./rofi.nix
+		./zathura.nix
+		./dolphin.nix
 	];
 	catppuccin.pointerCursor.enable = true;
 	qt = {

@@ -10,8 +10,7 @@
 			../common/nvim.nix
 			../common/vscode.nix
 			../common/shell-config.nix
-			../common/hyprland.nix
-			../common/zathura.nix
+			../common/hyprland
 		] ++ conditionalImports;
 	programs = {
 		home-manager.enable = true;
