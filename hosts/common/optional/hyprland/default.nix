@@ -27,7 +27,9 @@ in
 		dconf.enable = true;
 	};
 	services.blueman.enable = true;
+	services.xserver.excludePackages = [ pkgs.xterm ]; 
 	environment.systemPackages = with pkgs; [
+		kitty
 		# status bar
 		waybar
 		# notification daemon
