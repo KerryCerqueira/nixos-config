@@ -6,9 +6,10 @@ configuration {
 	display-window: "󱂬 window:";
 	display-combi:  "󰕘 combi:";
 	display-filebrowser: "󰉋 filebrowser:";
+	terminal: "kitty";
 	timeout {
-action: "kb-cancel";
-delay:  0;
+		action: "kb-cancel";
+		delay:  0;
 	}
 	filebrowser {
 		directories-first: true;
