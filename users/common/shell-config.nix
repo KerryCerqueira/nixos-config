@@ -35,5 +35,9 @@ in {
 			source = "${root}/dotfiles/bat/";
 			recursive = true;
 		};
+		".config/kitty/" = {
+			source = "${root}/dotfiles/kitty/";
+			recursive = true;
+		};
 	};
 }
