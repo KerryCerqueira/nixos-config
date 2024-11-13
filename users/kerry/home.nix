@@ -11,10 +11,10 @@
 			../common/vscode.nix
 			../common/shell-config.nix
 			../common/hyprland.nix
+			../common/zathura.nix
 		] ++ conditionalImports;
 	programs = {
 		home-manager.enable = true;
-		zathura.enable = true;
 		firefox.enable = true;
 	};
 	home = {
