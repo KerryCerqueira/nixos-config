@@ -11,6 +11,7 @@
 			../common/vscode.nix
 			../common/shell-config.nix
 			../common/hyprland
+			../common/libreoffice.nix
 		] ++ conditionalImports;
 	programs = {
 		home-manager.enable = true;
