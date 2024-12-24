@@ -16,6 +16,7 @@
 	programs = {
 		home-manager.enable = true;
 		firefox.enable = true;
+		obs-studio.enable = true;
 	};
 	home = {
 		username = "kerry";
