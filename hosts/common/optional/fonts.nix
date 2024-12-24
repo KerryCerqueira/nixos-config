@@ -4,6 +4,6 @@
 	fonts.packages = with pkgs ; [
 		iosevka
 		noto-fonts
-		(nerdfonts.override {fonts = ["Iosevka"];})
+		nerd-fonts.iosevka
 	];
 }
