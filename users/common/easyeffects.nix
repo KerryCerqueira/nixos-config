@@ -1,5 +1,8 @@
-{ configRoot, ... }:
+{ inputs, ... }:
 
+let
+	root = inputs.self;
+in
 {
 	services.easyeffects = {
 		enable = true;
@@ -7,7 +10,7 @@
 	};
 	home.file = {
 		".config/easyeffects/" = {
-			source = "${configRoot}/dotfiles/easyeffects/";
+			source = "${root}/dotfiles/easyeffects/";
 			recursive = true;
 		};
 	};
