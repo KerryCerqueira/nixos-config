@@ -26,14 +26,16 @@ in
 		ssh.startAgent = true;
 		dconf.enable = true;
 	};
-	services.blueman.enable = true;
-	services.xserver.excludePackages = [ pkgs.xterm ]; 
+	services = {
+		blueman.enable = true;
+		xserver.excludePackages = [ pkgs.xterm ];
+		upower.enable = true;
+	};
 	environment.systemPackages = with pkgs; [
 		kitty
 		# status bar
 		waybar
 		# notification daemon
-		swaynotificationcenter
 		libnotify
 		# volume control
 		pavucontrol
