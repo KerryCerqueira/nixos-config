@@ -17,6 +17,7 @@ in {
 		fd
 		ripgrep
 		bat
+		sshfs
 		bat-extras.batman
 		bat-extras.batgrep
 		bat-extras.batdiff
