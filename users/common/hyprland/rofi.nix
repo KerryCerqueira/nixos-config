@@ -1,15 +1,14 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
 	root = inputs.self;
-	inherit (config.lib.formats.rasi) mkLiteral;
 in {
 	programs.rofi = {
 		enable = true;
-		# package = pkgs.rofi-wayland;
+		package = pkgs.rofi-wayland;
 		plugins = with pkgs; [
-			rofi-calc
-			rofi-file-browser
-			rofi-top
+			(rofi-calc.override { rofi-unwrapped = rofi-wayland-unwrapped; })
+			(rofi-file-browser.override { rofi= rofi-wayland-unwrapped; })
+			(rofi-top.override { rofi-unwrapped = rofi-wayland-unwrapped; })
 		];
 	};
 	home.file = {
