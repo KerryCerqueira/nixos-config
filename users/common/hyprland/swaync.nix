@@ -13,13 +13,4 @@ in {
 			".config/swaync/config.json".text = builtins.toJSON swayncConfig;
 		};
 	};
-
-	wayland.windowManager.hyprland.settings = {
-		exec-once = [ "swaync" ];
-		layerrule = [
-			"animation slide top, swaync-control-center"
-			"animation slide top, swaync-notification-window"
-		];
-	};
-
 }

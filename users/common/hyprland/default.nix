@@ -13,9 +13,10 @@ in
 	];
 	imports = [
 		inputs.catppuccin.homeManagerModules.catppuccin
-		./rofi.nix
-		./zathura.nix
 		./dolphin.nix
+		./rofi.nix
+		./swaync.nix
+		./zathura.nix
 	];
 	catppuccin.pointerCursor.enable = true;
 	qt = {
@@ -60,11 +61,23 @@ in
 		package = inputs.hyprland.packages.${system}.hyprland;
 		catppuccin.enable = true;
 	};
-	services.hyprpaper = {
-		enable = true;
-		settings = {
-			preload = "~/.config/hypr/images/fingerprint.jpg";
-			wallpaper = ",~/.config/hypr/images/fingerprint.jpg";
+	services = {
+		hyprpaper = {
+			enable = true;
+			settings = {
+				preload = "~/.config/hypr/images/fingerprint.jpg";
+				wallpaper = ",~/.config/hypr/images/fingerprint.jpg";
+			};
+		};
+		swayosd.enable = true;
+		blueman-applet.enable = true;
+		batsignal = {
+			enable = true;
+			extraArgs = [
+				"-P Charging battery"
+				"-C Battery critical. System will hibernate at 2% battery."
+				"-U Battery discharging"
+			];
 		};
 	};
 }
