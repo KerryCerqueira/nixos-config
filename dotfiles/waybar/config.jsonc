@@ -37,36 +37,14 @@
 				"critical": 10,
 				"warning": 20
 			},
-			"tooltip": true
-		},
-		"power-profiles-daemon": {
-			"format": "{icon}",
-			"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
 			"tooltip": true,
-			"format-icons": {
-				"default": " ",
-				"performance": " ",
-				"balanced": " ",
-				"power-saver": " "
-			}
-		},
-		"group/battery": {
-			"orientation": "inherit",
-			"drawer": {
-				"transition-duration": 500,
-				"transition-left-to-right": false,
-				"click-to-reveal": true,
-			},
-			"modules": [
-				"battery",
-				"power-profiles-daemon",
-			],
+			"on-click": "auto-cpufreq-gtk"
 		},
 		"group/power": {
 			"orientation": "inherit",
 			"drawer": {
 				"transition-duration": 500,
-				"transition-left-to-right": false,
+				"transition-left-to-right": true,
 			},
 			"modules": [
 				"custom/power",
@@ -91,9 +69,9 @@
 			"on-click": "zenity --question --title='' --text='Reboot system?' && reboot",
 		},
 		"custom/power": {
-			"format": "",
+			"format": " ",
 			"tooltip": false,
-			"on-click": "zenity --question --title='' --text='Poweroff system?' && shutdown now",
+			"on-click": "zenity --question --title='' --text='Poweroff system?' && systemctl poweroff",
 		},
 		"custom/notification": {
 			"tooltip": false,
@@ -148,7 +126,7 @@
 		},
 		"custom/launcher": {
 			"format": " ",
-			"on-click": "pkill rofi || rofi -show drun",
+			"on-click": "nwg-drawer",
 			"tooltip": false
 		},
 		"custom/keyboard": {
@@ -198,6 +176,7 @@
 		],
 		"modules-left": [
 			"custom/launcher",
+			"group/power",
 			"memory",
 			"cpu",
 			"temperature",
@@ -208,34 +187,10 @@
 			"custom/keyboard",
 			"idle_inhibitor",
 			"custom/notification",
-			"pulseaudio",
-			"group/battery",
-			"group/power",
+			"battery",
 			"clock",
 		],
-		"network": {
-			"format-disconnected": "󰯡 Disconnected",
-			"format-ethernet": "󰀂 {ifname} ({ipaddr})",
-			"format-linked": "󰖪 {essid} (No IP)",
-			"format-wifi": "󰖩 {essid}",
-			"interval": 1,
-			"tooltip": false
-		},
 		"position": "top",
-		"pulseaudio": {
-			"format": "{icon} {volume}%",
-			"format-icons": {
-				"default": [
-					"",
-					"",
-					""
-				]
-			},
-			"format-muted": "󰖁 Muted",
-			"on-click": "pavucontrol",
-			"scroll-step": 1,
-			"tooltip": false
-		},
 		"temperature": {
 			"format": " {temperatureC}°C",
 			"tooltip": false
