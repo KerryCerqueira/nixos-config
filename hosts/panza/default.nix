@@ -1,15 +1,15 @@
-{ pkgs, config, stateVersion, hostName, ... }:
+{ pkgs, config, hostName, ... }:
 
 {
 	imports = [
 		./hardware
 		../common/core/systemd-boot.nix
-		../common/optional/gnome#minimal
+		../common/optional/hyprland
 		../common/optional/steam.nix
-		../common/optional/vpn.nix
 		../common/optional/fonts.nix
+		../common/optional/thunderbird.nix
 	];
-	system.stateVersion = stateVersion;
+	system.stateVersion = "23.11";
 	nix.settings.experimental-features = ["nix-command" "flakes"];
 	nixpkgs.config.allowUnfree = true;
 	networking.hostName = hostName;
