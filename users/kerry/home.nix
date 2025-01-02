@@ -34,6 +34,7 @@
 			rnote
 			vlc
 			spotify
+			whatsapp-for-linux
 		];
 	};
 }
