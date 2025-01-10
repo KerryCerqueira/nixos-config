@@ -2,7 +2,7 @@ keys:
   - &kerry age15c0a468t76uw2su43y4c7cmryjn3lt36r0p2fc5vmpmzm322aymq4ntcm6
   # - &potato <insert key here>
 creation_rules:
-  - path_regex: hosts/panza/secrets/secrets.yaml$
+  - path_regex: hosts/panza/secrets.yaml$
     key_groups:
       - age:
         - *kerry
@@ -10,7 +10,3 @@ creation_rules:
     key_groups:
       - age:
         - *kerry
-  # - path_regex: hosts/potato/secrets/secrets.yaml$
-  #   key_groups:
-  #     - age:
-  #       - *potato
