@@ -57,6 +57,9 @@
 							home-manager.users.kerry = import ./users/kerry/home.nix;
 							home-manager.backupFileExtension = "bkp";
 							home-manager.extraSpecialArgs = specialArgs;
+							home-manager.sharedModules = [
+								sops-nix.homeManagerModules.sops
+							];
 						}
 					];
 				};
