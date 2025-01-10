@@ -32,6 +32,8 @@
 		micromamba
 		#rust
 		rustup
+		# node
+		nodejs
 	];
 	home.file.".config/nvim/" = {
 		source = "${inputs.nvim-config}";
