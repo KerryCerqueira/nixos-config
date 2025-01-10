@@ -16,14 +16,25 @@
 	networking.networkmanager.enable = true;
 	time.timeZone = "America/Toronto";
 	i18n.defaultLocale = "en_CA.UTF-8";
-	services.xserver.enable = true;
-	services.xserver.displayManager.gdm.enable = true;
-	services.fprintd.enable = true;
-	services.xserver = {
-		xkb.layout = "us";
-		xkb.variant = "";
+	sops = {
+		defaultSopsFile = ./secrets.yaml;
+		defaultSopsFormat = "yaml";
+		age.keyFile = "/home/kerry/.config/sops/age/keys.txt";
+		secrets = {
+			"hashedUserPasswords/kerry".neededForUsers = true;
+			"encryptionKeys/age" = {};
+		};
 	};
-	services.printing.enable = true;
+	services = {
+		xserver.enable = true;
+		xserver.displayManager.gdm.enable = true;
+		fprintd.enable = true;
+		xserver = {
+			xkb.layout = "us";
+			xkb.variant = "";
+		};
+		printing.enable = true;
+	};
 	programs.zsh.enable = true;
 	users.users.kerry = {
 		isNormalUser = true;
@@ -31,15 +42,5 @@
 		hashedPasswordFile = config.sops.secrets."hashedUserPasswords/kerry".path;
 		extraGroups = [ "networkmanager" "wheel" ];
 		shell = pkgs.zsh;
-	};
-	sops = {
-		defaultSopsFile = secrets/secrets.yaml;
-		defaultSopsFormat = "yaml";
-		age.keyFile = "/home/kerry/.config/sops/age/keys.txt";
-		secrets = {
-			"hashedUserPasswords/kerry".neededForUsers = true;
-			"vpnConfs/bic" = {};
-			"encryptionKeys/age" = {};
-		};
 	};
 }
