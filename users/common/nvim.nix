@@ -22,7 +22,7 @@
 		jdt-language-server
 		taplo
 		pyright
-		ruff-lsp
+		ruff
 		texlab
 		nil
 		inputs.hyprls.packages.${system}.default
