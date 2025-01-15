@@ -36,11 +36,15 @@
 		printing.enable = true;
 	};
 	programs.zsh.enable = true;
+	programs.neovim = {
+		enable = true;
+		defaultEditor = true;
+	};
+	users.defaultUserShell = pkgs.zsh;
 	users.users.kerry = {
 		isNormalUser = true;
 		description = "Kerry Cerqueira";
 		hashedPasswordFile = config.sops.secrets."hashedUserPasswords/kerry".path;
 		extraGroups = [ "networkmanager" "wheel" ];
-		shell = pkgs.zsh;
 	};
 }
