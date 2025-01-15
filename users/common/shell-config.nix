@@ -6,14 +6,12 @@ in {
 		zsh
 		kitty
 		antidote
-		ranger
 		btop
 		fzf
 		atuin
 		eza
 		tldr
 		dust
-		xplr
 		fd
 		ripgrep
 		bat
@@ -21,6 +19,8 @@ in {
 		bat-extras.batman
 		bat-extras.batgrep
 		bat-extras.batdiff
+		timg
+		yazi
 	];
 	home.file = {
 		".local/share/zsh/antidote/" = {

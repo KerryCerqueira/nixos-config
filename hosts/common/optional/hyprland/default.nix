@@ -44,6 +44,8 @@ in
 		# display configuration
 		wlr-randr
 		kanshi
+		# polkit agent
+		hyprpolkitagent
 		# hypr plugins
 		hyprshot
 		# clipboard for non windowed applications
@@ -51,5 +53,7 @@ in
 		papirus-icon-theme
 		wvkbd
 		zenity
+		# image viewer
+		image-roll
 	];
 }
