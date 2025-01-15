@@ -3,6 +3,11 @@
 {
 	programs.neovim = {
 		enable = true;
+		withRuby = true;
+		withNodeJs= true;
+		withPython3= true;
+		viAlias = true;
+		vimAlias = true;
 		defaultEditor = true;
 	};
 	home.packages = with pkgs; [
@@ -32,8 +37,6 @@
 		micromamba
 		#rust
 		rustup
-		# node
-		nodejs
 	];
 	home.file.".config/nvim/" = {
 		source = "${inputs.nvim-config}";
