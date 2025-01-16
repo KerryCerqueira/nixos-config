@@ -9,23 +9,28 @@
 	];
 	programs = {
 		home-manager.enable = true;
-		zathura.enable = true;
 		chromium.enable = true;
 		firefox.enable = true;
+	};
+	services.syncthing = {
+		enable = true;
+		tray.enable = true;
+		tray.command = "syncthingtray --wait";
 	};
 	home = {
 		username = "erika";
 		homeDirectory = "/home/erika";
 		stateVersion = "23.11";
 		packages = with pkgs; [
-			xournalpp
+			keepassxc
 			gimp
 			discord
-			slack
 			thunderbird
 			zoom-us
 			rnote
 			vlc
+			spotify
+			whatsapp-for-linux
 		];
 	};
 }

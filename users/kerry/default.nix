@@ -1,4 +1,4 @@
-{ pkgs, hostName, ... }:
+{ pkgs, ... }:
 
 {
 	imports = [
@@ -36,7 +36,6 @@
 		stateVersion = "23.11";
 		packages = with pkgs; [
 			keepassxc
-			xournalpp
 			gimp
 			discord
 			slack
@@ -47,7 +46,6 @@
 			vlc
 			spotify
 			whatsapp-for-linux
-			globalprotect-openconnect
 		];
 	};
 }
