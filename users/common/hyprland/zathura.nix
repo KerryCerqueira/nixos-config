@@ -1,7 +1,7 @@
-{ inputs, ... }:
+{ self, ... }:
 
 let
-	root = inputs.self;
+	root = self;
 in {
 	programs.zathura = {
 		enable = true;

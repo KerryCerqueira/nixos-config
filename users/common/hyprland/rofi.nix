@@ -1,6 +1,6 @@
-{ inputs, pkgs, ... }:
+{ pkgs, self, ... }:
 let
-	root = inputs.self;
+	root = self;
 in {
 	programs.rofi = {
 		enable = true;

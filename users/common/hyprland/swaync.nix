@@ -1,7 +1,7 @@
-{ inputs, pkgs, ... }:
+{ pkgs, self, ... }:
 
 let
-	root = inputs.self;
+	root = self;
 	swayncConfig = (
 		builtins.fromJSON (builtins.readFile "${root}/dotfiles/swaync/config.json")
 		// {"$schema" = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";}
