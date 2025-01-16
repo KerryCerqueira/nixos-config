@@ -1,6 +1,6 @@
-{ pkgs, inputs, ... }:
+{ pkgs, self, flakeInputs, ... }:
 let
-	root = inputs.self;
+	root = self;
 in {
 	home.packages = with pkgs; [
 		zsh
@@ -28,7 +28,7 @@ in {
 			recursive = true;
 		};
 		".config/zsh/" = {
-			source = "${inputs.zsh-config}";
+			source = "${flakeInputs.zsh-config}";
 			recursive = true;
 		};
 		".zshenv".text = "export ZDOTDIR=$HOME/.config/zsh/";

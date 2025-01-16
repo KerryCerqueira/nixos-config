@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, flakeInputs, ... }:
 
 {
 	programs.neovim = {
@@ -30,7 +30,7 @@
 		ruff
 		texlab
 		nil
-		inputs.hyprls.packages.${system}.default
+		flakeInputs.hyprls.packages.${system}.default
 		# tex
 		texliveFull
 		# python
@@ -39,7 +39,7 @@
 		rustup
 	];
 	home.file.".config/nvim/" = {
-		source = "${inputs.nvim-config}";
+		source = "${flakeInputs.nvim-config}";
 		recursive = true;
 	};
 }

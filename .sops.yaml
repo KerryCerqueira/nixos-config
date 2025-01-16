@@ -1,12 +1,31 @@
 keys:
   - &kerry age15c0a468t76uw2su43y4c7cmryjn3lt36r0p2fc5vmpmzm322aymq4ntcm6
-  # - &potato <insert key here>
+  - &julie age148p0z2l7zuwffh3wahyz9hpkzfmttgaq7wp27gyhzzxu3af8kdeqw3rlgh
+  - &erika age1uc2x72y562erg5v2z46vv2ha0c9c8x2fdwcau9hqcsn5jyph4eysfr9asp
 creation_rules:
   - path_regex: hosts/panza/secrets.yaml$
     key_groups:
       - age:
         - *kerry
+  - path_regex: hosts/lazarus/secrets.yaml$
+    key_groups:
+      - age:
+        - *julie
+        - *kerry
+  - path_regex: hosts/potato/secrets.yaml$
+    key_groups:
+      - age:
+        - *erika
+        - *kerry
   - path_regex: users/kerry/secrets.yaml$
     key_groups:
       - age:
         - *kerry
+  - path_regex: users/erika/secrets.yaml$
+    key_groups:
+      - age:
+        - *erika
+  - path_regex: users/julie/secrets.yaml$
+    key_groups:
+      - age:
+        - *julie
