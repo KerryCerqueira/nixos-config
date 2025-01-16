@@ -63,8 +63,8 @@
 						home-manager.extraSpecialArgs = extraSpecialArgs;
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.julie = import ./users/julie/home.nix;
-						home-manager.users.kerry = import ./users/kerry/home.nix;
+						home-manager.users.julie = import ./users/julie;
+						home-manager.users.kerry = import ./users/kerry;
 						home-manager.backupFileExtension = "bkp";
 						home-manager.sharedModules = [
 							sops-nix.homeManagerModules.sops
@@ -84,7 +84,7 @@
 						home-manager.useUserPackages = true;
 						home-manager.users.kerry = {
 							imports = [
-								./users/kerry/home.nix
+								./users/kerry
 								./users/common/easyeffects.nix
 								./users/common/hyprland
 							];
@@ -106,7 +106,7 @@
 						home-manager.extraSpecialArgs = extraSpecialArgs;
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.erika = import ./users/erika/home.nix;
+						home-manager.users.erika = import ./users/erika;
 						home-manager.backupFileExtension = "bkp";
 					}
 				];
