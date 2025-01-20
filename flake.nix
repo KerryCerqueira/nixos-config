@@ -35,6 +35,7 @@
 		};
 		hyprls.url = "github:hyprland-community/hyprls";
 		catppuccin.url = "github:catppuccin/nix";
+		nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
 	};
 
 	outputs = { self, nixpkgs, home-manager, sops-nix, catppuccin, ... }@inputs : {
