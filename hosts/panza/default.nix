@@ -19,10 +19,24 @@
 	sops = {
 		defaultSopsFile = ./secrets.yaml;
 		defaultSopsFormat = "yaml";
-		age.keyFile = "/home/kerry/.config/sops/age/keys.txt";
+		age.keyFile = let
+			envKey = builtins.getEnv "SOPS_AGE_KEY_FILE";
+		in
+			if envKey == "" then "/etc/age/panza.age" else envKey;
 		secrets = {
 			"hashedUserPasswords/kerry".neededForUsers = true;
-			"encryptionKeys/age" = {};
+			"ageKeys/kerryMaster" = {
+				path = "/home/kerry/.config/sops/age/kerry_master.age";
+				owner = "kerry";
+			};
+			"ageKeys/kerryPotato" = {
+				path = "/home/kerry/.config/sops/age/kerry_potato.age";
+				owner = "kerry";
+			};
+			"ageKeys/kerryLazarus" = {
+				path = "/home/kerry/.config/sops/age/kerry_lazarus.age";
+				owner = "kerry";
+			};
 		};
 	};
 	services = {
