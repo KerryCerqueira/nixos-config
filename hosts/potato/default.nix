@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 
 {
@@ -16,6 +16,26 @@
 	networking.networkmanager.enable = true;
 	time.timeZone = "America/Toronto";
 	i18n.defaultLocale = "en_CA.UTF-8";
+	sops = {
+		defaultSopsFile = ./secrets.yaml;
+		defaultSopsFormat = "yaml";
+		age.keyFile = let
+			envKey = builtins.getEnv "SOPS_AGE_KEY_FILE";
+		in
+			if envKey == "" then "/etc/age/potato.age" else envKey;
+		secrets = {
+			"hashedUserPasswords/kerry".neededForUsers = true;
+			"hashedUserPasswords/erika".neededForUsers = true;
+			"ageKeys/kerryPotato" = {
+				path = "/home/kerry/.config/sops/age/kerry_potato.age";
+				owner = "kerry";
+			};
+			"ageKeys/erikaMaster" = {
+				path = "/home/erika/.config/sops/age/erika_master.age";
+				owner = "erika";
+			};
+		};
+	};
 	services = {
 		xserver = {
 			enable = true;
@@ -40,8 +60,14 @@
 		users.erika = {
 			isNormalUser = true;
 			description = "Erika";
+			hashedPasswordFile = config.sops.secrets."hashedUserPasswords/erika".path;
 			extraGroups = [ "networkmanager" "wheel" ];
-			shell = pkgs.zsh;
+		};
+		users.kerry = {
+			isNormalUser = true;
+			descriptin = "Kerry Cerqueira";
+			hashedPasswordFile = config.sops.secrets."hashedUserPasswords/kerry".path;
+			extraGroups = [ "networkmanager" "wheel" ];
 		};
 	};
 }

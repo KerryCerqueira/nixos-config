@@ -18,7 +18,10 @@
 	sops = {
 		defaultSopsFile = ./secrets.yaml;
 		defaultSopsFormat = "yaml";
-		age.keyFile = "/home/kerry/.config/sops/age/keys.txt";
+		age.keyFile = let
+			envKey = builtins.getEnv "SOPS_AGE_KEY_FILE";
+		in
+			if envKey == "" then "/etc/age/panza.age" else envKey;
 		secrets = {
 			"hashedUserPasswords/kerry".neededForUsers = true;
 		};
@@ -46,7 +49,7 @@
 	users.users.julie= {
 		isNormalUser = true;
 		description = "Julie Quigley";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [ "networkmanager" ];
 	};
 	users.users.kerry = {
 		isNormalUser = true;
