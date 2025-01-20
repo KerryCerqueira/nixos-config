@@ -3,6 +3,7 @@ let
 	root = self;
 in {
 	home.packages = with pkgs; [
+		git
 		zsh
 		kitty
 		antidote
