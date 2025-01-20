@@ -21,9 +21,13 @@
 		age.keyFile = let
 			envKey = builtins.getEnv "SOPS_AGE_KEY_FILE";
 		in
-			if envKey == "" then "/etc/age/panza.age" else envKey;
+			if envKey == "" then "/etc/age/lazarus.age" else envKey;
 		secrets = {
 			"hashedUserPasswords/kerry".neededForUsers = true;
+			"ageKeys/kerryLazarus" = {
+				path = "/home/kerry/.config/sops/age/kerry_lazarus.age";
+				owner = "kerry";
+			};
 		};
 	};
 	services = {
