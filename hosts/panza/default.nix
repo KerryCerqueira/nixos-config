@@ -3,7 +3,7 @@
 {
 	imports = [
 		./hardware
-		../common/systemd-boot.nix
+		../common/grub.nix
 		../common/hyprland
 		../common/steam.nix
 		../common/fonts.nix

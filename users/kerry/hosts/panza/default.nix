@@ -1,6 +1,6 @@
 { ... }:
 {
-	imports = [ ./easyeffects.nix];	
+	imports = [ ./easyeffects.nix];
 	sops = {
 		defaultSopsFile = ./secrets.yaml;
 		defaultSopsFormat = "yaml";

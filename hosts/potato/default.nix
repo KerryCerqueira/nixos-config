@@ -4,7 +4,7 @@
 {
 	imports = [
 		./hardware
-		../common/systemd-boot.nix
+		../common/grub.nix
 		../common/gnome
 		../common/steam.nix
 		../common/fonts.nix
