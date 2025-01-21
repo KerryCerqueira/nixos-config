@@ -12,11 +12,6 @@
 		firefox.enable = true;
 		obs-studio.enable = true;
 	};
-	services.syncthing = {
-		enable = true;
-		tray.enable = true;
-		tray.command = "syncthingtray --wait";
-	};
 	home = {
 		username = "kerry";
 		homeDirectory = "/home/kerry";
