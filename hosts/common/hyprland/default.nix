@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, flakeInputs, ... }:
 let
 	system = pkgs.stdenv.hostPlatform.system;
 in
@@ -17,8 +17,8 @@ in
 	programs = {
 		hyprland = {
 			enable = true;
-			package = inputs.hyprland.packages.${system}.hyprland;
-			portalPackage = inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
+			package = flakeInputs.hyprland.packages.${system}.hyprland;
+			portalPackage = flakeInputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
 		};
 		iio-hyprland.enable = true;
 		nm-applet.enable = true;

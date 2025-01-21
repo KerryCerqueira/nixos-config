@@ -1,12 +1,50 @@
-keys:
-  - &kerry age15c0a468t76uw2su43y4c7cmryjn3lt36r0p2fc5vmpmzm322aymq4ntcm6
-  # - &potato <insert key here>
+age_keys:
+  # System-level secrets on lazarus
+  - &lazarus age1aldvtm9hpcj4e2mh7c2eca7d79yyf3vx0zwywj4a02xy0vv4zcwsw3jnwd
+  # System-level secrets on panza
+  - &panza age15c0a468t76uw2su43y4c7cmryjn3lt36r0p2fc5vmpmzm322aymq4ntcm6
+  # System-level secrets on potato
+  - &potato age1dmcrmq23arugj8h8zlr663v6hqfp58apj90ynarahl2w56jlfcdqfnsue4
+  # Erika's master encryption key
+  - &erika_master age1vcf4ntqgukhxf6pjyf2uqqw3jn260npg4q4f6wwup8xr2kq9v3sq0hmtjx
+  # Kerry's master encryption key
+  - &kerry_master age1xvyp63kuszp4u0ke4lf84wstgt6td04v6w605twh3mwqaedv9u8sdm8g4j
+  # Kerry's secrets on lazarus
+  - &kerry_lzrs age1msmzvr4y5sutl3rxwmj94cmyraj4zpjypmyauvzar6nk3htgds5q6smt4h
+  # Kerry's secrets on potato
+  - &kerry_ptto age1hwc68rmnfxj4uz3w8qjedmx2jzjfpuv7mzsra8zhfk2ughxy83gsqttkcp
 creation_rules:
+  - path_regex: hosts/lazarus/secrets.yaml$
+    key_groups:
+      - age:
+        - *lazarus
+        - *kerry_master
   - path_regex: hosts/panza/secrets.yaml$
     key_groups:
       - age:
-        - *kerry
-  - path_regex: users/kerry/secrets.yaml$
+        - *panza
+        - *kerry_master
+  - path_regex: hosts/potato/secrets.yaml$
     key_groups:
       - age:
-        - *kerry
+        - *potato
+        - *erika_master
+        - *kerry_master
+  - path_regex: users/kerry/hosts/panza/secrets.yaml$
+    key_groups:
+      - age:
+        - *kerry_master
+  - path_regex: users/kerry/hosts/potato/secrets.yaml$
+    key_groups:
+      - age:
+        - *kerry_master
+        - *kerry_ptto
+  - path_regex: users/kerry/hosts/lazarus/secrets.yaml$
+    key_groups:
+      - age:
+        - *kerry_master
+        - *kerry_lzrs
+  - path_regex: users/erika/secrets.yaml$
+    key_groups:
+      - age:
+        - *erika_master

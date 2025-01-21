@@ -9,23 +9,25 @@
 	];
 	programs = {
 		home-manager.enable = true;
-		zathura.enable = true;
-		chromium.enable = true;
 		firefox.enable = true;
+		obs-studio.enable = true;
 	};
 	home = {
-		username = "erika";
-		homeDirectory = "/home/erika";
+		username = "kerry";
+		homeDirectory = "/home/kerry";
 		stateVersion = "23.11";
 		packages = with pkgs; [
-			xournalpp
+			keepassxc
 			gimp
 			discord
 			slack
 			thunderbird
 			zoom-us
+			teams-for-linux
 			rnote
 			vlc
+			spotify
+			whatsapp-for-linux
 		];
 	};
 }
