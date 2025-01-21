@@ -54,8 +54,8 @@ in
 	wayland.windowManager.hyprland = {
 		enable = true;
 		plugins = [
-			flakeInputs.hyprspace.packages.${system}.Hyprspace
-			flakeInputs.hyprgrass.packages.${system}.default
+			# flakeInputs.hyprspace.packages.${system}.Hyprspace
+			# flakeInputs.hyprgrass.packages.${system}.default
 		];
 		extraConfig = "source = ./config.d/general.conf";
 		package = flakeInputs.hyprland.packages.${system}.hyprland;
