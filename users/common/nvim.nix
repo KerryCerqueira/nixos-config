@@ -4,18 +4,10 @@ let
 	nvimPlgDirs = config.programs.neovim.finalPackage.passthru.packpathDirs;
 	nvimPackDir = pkgs.vimUtils.packDir nvimPlgDirs;
 in {
-	# home.file.".local/share/nvim/lazy" = {
-	# 	source = "${nvimPackDir}/pack/myNeovimPackages/start";
-	# 	recursive = true;
-	# };
-
-	# If you are not seeing any search results, you may need to run manix
-	# --update-cache <query>, to initialise the cache.
-	home.packages = with pkgs; [
-		manix
-		lynx
-		texlive.combined.scheme-basic
-	];
+	home.file.".config/nvim/lua" = {
+		source = "${flakeInputs.nvim-config}/lua";
+		recursive = true;
+	};
 	programs.neovim = {
 		enable = true;
 		withRuby = true;
@@ -25,10 +17,27 @@ in {
 		vimAlias = true;
 		vimdiffAlias = true;
 		defaultEditor = true;
+		# extraPython3Packages = pyPkgs: with pyPkgs; [
+		# ];
 		extraLuaPackages = ps: [
 			ps.tiktoken_core
 		];
 		extraPackages = with pkgs; [
+			gh
+			alejandra
+			nodePackages.prettier
+			stylua
+			taplo
+			yaml-language-server
+			vscode-langservers-extracted
+			black
+			manix
+			lynx
+			texlive.combined.scheme-medium
+			marksman
+			markdownlint-cli2
+			python312Packages.pylatexenc
+			python312Packages.flake8
 			lua-language-server
 			jdt-language-server
 			taplo
@@ -45,27 +54,28 @@ in {
 			catppuccin-nvim
 			cmp-treesitter
 			cmp-vimtex
+			conform-nvim
 			CopilotChat-nvim
 			copilot-cmp
 			copilot-lua
 			copilot-lualine
+			crates-nvim
 			diffview-nvim
 			edgy-nvim
 			friendly-snippets
 			gitsigns-nvim
 			image-nvim
 			lazy-nvim
-			lazydev-nvim
 			lualine-nvim
 			lualine-lsp-progress
 			telescope-frecency-nvim
-			telescope-symbols-nvim
 			telescope-manix
 			telescope-nvim
 			telescope-symbols-nvim
 			telescope-undo-nvim
 			telescope-zf-native-nvim
 			trouble-nvim
+			iron-nvim
 			mini-ai
 			mini-align
 			mini-basics
@@ -84,6 +94,7 @@ in {
 			neogit
 			neo-tree-nvim
 			nvim-cmp
+			nvim-lint
 			nvim-lspconfig
 			nvim-treesitter.withAllGrammars
 			nvim-treesitter-context
@@ -94,6 +105,8 @@ in {
 			nvim-ts-context-commentstring
 			nvim-web-devicons
 			render-markdown-nvim
+			rustaceanvim
+			SchemaStore-nvim
 			snacks-nvim
 			vimtex
 			which-key-nvim
@@ -111,11 +124,25 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
 		{ import = "plugins.lang" },
-		{ import = "nixos-overlay" },
 		{
 			"folke/lazydev.nvim",
+			optional = true,
 			opts = {
 				library = { "${nvimPackDir}/pack/myNeovimPackages/start" },
+			},
+		},
+		{
+			{ "williamboman/mason-lspconfig.nvim", enabled = false },
+			{ "williamboman/mason.nvim", enabled = false },
+		},
+		{
+			{
+				"nvim-treesitter/nvim-treesitter",
+				opts = {
+					auto_install = false,
+					ensure_installed = {},
+				},
+				build = nil
 			},
 		},
 	},

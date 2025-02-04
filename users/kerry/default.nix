@@ -2,7 +2,7 @@
 
 {
 	imports = [
-		../common/nvim
+		../common/nvim.nix
 		../common/vscode.nix
 		../common/shell-config.nix
 		../common/libreoffice.nix
