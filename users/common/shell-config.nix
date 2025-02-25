@@ -11,6 +11,7 @@ in {
 		fzf
 		atuin
 		eza
+		moar
 		tldr
 		dust
 		fd
