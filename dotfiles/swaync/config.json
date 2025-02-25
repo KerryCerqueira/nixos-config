@@ -29,6 +29,7 @@
 		"notifications",
 		"mpris",
 		"volume",
+		"backlight",
 		"buttons-grid"
 	],
 	"widget-config": {
@@ -51,6 +52,9 @@
 		"volume": {
 			"label": "󰕾",
 			"show-per-app": true
+		},
+		"backlight": {
+			"label": "󰃠"
 		},
 		"buttons-grid": {
 			"actions": [
