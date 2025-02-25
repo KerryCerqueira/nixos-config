@@ -26,6 +26,7 @@ in
 		ssh.startAgent = true;
 		dconf.enable = true;
 	};
+	security.pam.services.hyprlock.fprintAuth = false;
 	services = {
 		blueman.enable = true;
 		xserver.excludePackages = [ pkgs.xterm ];
