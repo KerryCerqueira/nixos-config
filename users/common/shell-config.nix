@@ -41,5 +41,9 @@ in {
 			source = "${root}/dotfiles/kitty/";
 			recursive = true;
 		};
+		".config/eza/" = {
+			source = "${root}/dotfiles/eza/";
+			recursive = true;
+		}
 	};
 }
