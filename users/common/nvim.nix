@@ -23,7 +23,9 @@ in {
 		extraPackages = with pkgs; [
 			gh
 			alejandra
+			bash-language-server
 			nodePackages.prettier
+			shellcheck
 			stylua
 			taplo
 			yaml-language-server
