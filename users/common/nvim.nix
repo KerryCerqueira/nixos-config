@@ -17,8 +17,6 @@ in {
 		vimAlias = true;
 		vimdiffAlias = true;
 		defaultEditor = true;
-		# extraPython3Packages = pyPkgs: with pyPkgs; [
-		# ];
 		extraLuaPackages = ps: [
 			ps.tiktoken_core
 		];
@@ -112,12 +110,8 @@ in {
 			which-key-nvim
 			yazi-nvim
 		];
-		extraLuaConfig = let
-			nvimStorePaths = config.programs.neovim.finalPackage.passthru.packpathDirs;
-			nvimPkgsPath = pkgs.vimUtils.packDir nvimStorePaths;
-		in
-			# lua
-			''
+		extraLuaConfig = # lua
+''
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 require("lazy").setup({
@@ -156,6 +150,6 @@ require("lazy").setup({
 	},
 	install = { missing = false, },
 })
-		'';
+'';
 	};
 }

@@ -45,6 +45,6 @@ in {
 		".config/eza/" = {
 			source = "${root}/dotfiles/eza/";
 			recursive = true;
-		}
+		};
 	};
 }

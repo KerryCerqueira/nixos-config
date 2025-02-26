@@ -11,6 +11,8 @@ in
 		trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
 	};
 	environment.sessionVariables = {
+		PAGER = "${pkgs.moar}/bin/moar";
+		MOAR = "--statusbar=bold --no-linenumbers";
 		# hint electron apps to use wayland
 		NIXOS_OZONE_WL = "1";
 	};
@@ -56,5 +58,7 @@ in
 		zenity
 		# image viewer
 		image-roll
+		# better pager
+		moar
 	];
 }
