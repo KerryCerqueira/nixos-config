@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 { pkgs, inputs, ... }:
 
 let
 	system = pkgs.stdenv.hostPlatform.system;
 	root = inputs.self;
+=======
+{ pkgs, self, flakeInputs, ... }:
+
+
+let
+	system = pkgs.stdenv.hostPlatform.system;
+	root = self;
+>>>>>>> master
 in
 {
 	home.packages = with pkgs; [
@@ -12,7 +21,10 @@ in
 		wdisplays
 	];
 	imports = [
+<<<<<<< HEAD
 		inputs.catppuccin.homeManagerModules.catppuccin
+=======
+>>>>>>> master
 		./dolphin.nix
 		./rofi.nix
 		./swaync.nix
@@ -54,11 +66,19 @@ in
 	wayland.windowManager.hyprland = {
 		enable = true;
 		plugins = [
+<<<<<<< HEAD
 			inputs.hyprspace.packages.${system}.Hyprspace
 			inputs.hyprgrass.packages.${system}.default
 		];
 		extraConfig = "source = ./config.d/general.conf";
 		package = inputs.hyprland.packages.${system}.hyprland;
+=======
+			# flakeInputs.hyprspace.packages.${system}.Hyprspace
+			# flakeInputs.hyprgrass.packages.${system}.default
+		];
+		extraConfig = "source = ./config.d/general.conf";
+		package = flakeInputs.hyprland.packages.${system}.hyprland;
+>>>>>>> master
 		catppuccin.enable = true;
 	};
 	services = {

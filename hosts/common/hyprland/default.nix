@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, flakeInputs, ... }:
 let
 	system = pkgs.stdenv.hostPlatform.system;
 in
@@ -11,14 +11,16 @@ in
 		trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
 	};
 	environment.sessionVariables = {
+		PAGER = "${pkgs.moar}/bin/moar";
+		MOAR = "--statusbar=bold --no-linenumbers";
 		# hint electron apps to use wayland
 		NIXOS_OZONE_WL = "1";
 	};
 	programs = {
 		hyprland = {
 			enable = true;
-			package = inputs.hyprland.packages.${system}.hyprland;
-			portalPackage = inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
+			package = flakeInputs.hyprland.packages.${system}.hyprland;
+			portalPackage = flakeInputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
 		};
 		iio-hyprland.enable = true;
 		nm-applet.enable = true;
@@ -26,6 +28,7 @@ in
 		ssh.startAgent = true;
 		dconf.enable = true;
 	};
+	security.pam.services.hyprlock.fprintAuth = false;
 	services = {
 		blueman.enable = true;
 		xserver.excludePackages = [ pkgs.xterm ];
@@ -44,6 +47,8 @@ in
 		# display configuration
 		wlr-randr
 		kanshi
+		# polkit agent
+		hyprpolkitagent
 		# hypr plugins
 		hyprshot
 		# clipboard for non windowed applications
@@ -51,5 +56,9 @@ in
 		papirus-icon-theme
 		wvkbd
 		zenity
+		# image viewer
+		image-roll
+		# better pager
+		moar
 	];
 }

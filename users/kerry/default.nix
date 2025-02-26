@@ -1,18 +1,12 @@
-{ pkgs, hostName, ... }:
+{ pkgs, ... }:
 
 {
-	imports = let
-		conditionalImports = if hostName == "panza" then [
-			../common/easyeffects.nix
-		] else [];
-	in
-		[
-			../common/nvim.nix
-			../common/vscode.nix
-			../common/shell-config.nix
-			../common/hyprland
-			../common/libreoffice.nix
-		] ++ conditionalImports;
+	imports = [
+		../common/nvim.nix
+		../common/vscode.nix
+		../common/shell-config.nix
+		../common/libreoffice.nix
+	];
 	programs = {
 		home-manager.enable = true;
 		firefox.enable = true;
@@ -24,7 +18,6 @@
 		stateVersion = "23.11";
 		packages = with pkgs; [
 			keepassxc
-			xournalpp
 			gimp
 			discord
 			slack
@@ -34,6 +27,7 @@
 			rnote
 			vlc
 			spotify
+			whatsapp-for-linux
 		];
 	};
 }

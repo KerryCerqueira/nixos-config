@@ -8,8 +8,6 @@
 	environment.systemPackages = with pkgs; [
 		# kde wayland support
 		libsForQt5.qt5.qtwayland
-		# polkit agent
-		libsForQt5.polkit-kde-agent
 		# file manager
 		libsForQt5.dolphin
 		libsForQt5.dolphin-plugins

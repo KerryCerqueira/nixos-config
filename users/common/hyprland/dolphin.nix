@@ -1,7 +1,7 @@
-{ inputs, ... }:
+{ self, ... }:
 
 let
-	root = inputs.self;
+	root = self;
 in {
 	home.file = {
 		".local/share/konsole/catppuccin-mocha.colorscheme".source = "${root}/dotfiles/konsole/catppuccin-mocha.colorscheme";

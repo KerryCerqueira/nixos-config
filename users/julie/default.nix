@@ -2,8 +2,6 @@
 
 {
 	imports = [
-		../common/nvim.nix
-		../common/vscode.nix
 		../common/shell-config.nix
 		../common/libreoffice.nix
 	];
@@ -13,17 +11,18 @@
 		firefox.enable = true;
 	};
 	home = {
-		username = "erika";
-		homeDirectory = "/home/erika";
+		username = "julie";
+		homeDirectory = "/home/julie";
 		stateVersion = "23.11";
 		packages = with pkgs; [
 			xournalpp
-			discord
-			slack
+			gimp
 			thunderbird
 			zoom-us
 			rnote
 			vlc
+			spotify
+			whatsapp-for-linux
 		];
 	};
 }
