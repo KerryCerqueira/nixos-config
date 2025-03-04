@@ -24,8 +24,6 @@
 		in
 			if envKey == "" then "/etc/age/potato.age" else envKey;
 		secrets = {
-			"hashedUserPasswords/kerry".neededForUsers = true;
-			"hashedUserPasswords/erika".neededForUsers = true;
 			"ageKeys/kerryPotato" = {
 				path = "/home/kerry/.config/sops/age/kerry_potato.age";
 				owner = "kerry";
@@ -60,13 +58,11 @@
 		users.erika = {
 			isNormalUser = true;
 			description = "Erika";
-			hashedPasswordFile = config.sops.secrets."hashedUserPasswords/erika".path;
 			extraGroups = [ "networkmanager" "wheel" ];
 		};
 		users.kerry = {
 			isNormalUser = true;
-			descriptin = "Kerry Cerqueira";
-			hashedPasswordFile = config.sops.secrets."hashedUserPasswords/kerry".path;
+			description = "Kerry Cerqueira";
 			extraGroups = [ "networkmanager" "wheel" ];
 		};
 	};
