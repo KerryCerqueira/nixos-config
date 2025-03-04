@@ -4,7 +4,8 @@
 	imports = [
 		../common/nvim.nix
 		../common/vscode.nix
-		../common/shell-config.nix
+		../common/zsh.nix
+		../common/fish.nix
 		../common/libreoffice.nix
 	];
 	programs = {

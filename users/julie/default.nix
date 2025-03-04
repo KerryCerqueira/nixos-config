@@ -2,7 +2,7 @@
 
 {
 	imports = [
-		../common/shell-config.nix
+		../common/zsh.nix
 		../common/libreoffice.nix
 	];
 	programs = {

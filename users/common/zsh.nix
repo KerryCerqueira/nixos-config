@@ -5,7 +5,6 @@ in {
 	home.packages = with pkgs; [
 		git
 		zsh
-		kitty
 		antidote
 		btop
 		fzf
