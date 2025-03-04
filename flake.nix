@@ -106,6 +106,7 @@
 			potato = nixpkgs.lib.nixosSystem {
 				inherit specialArgs;
 				modules = [
+					sops-nix.nixosModules.sops
 					./hosts/potato
 					home-manager.nixosModules.home-manager
 					{
@@ -125,6 +126,9 @@
 							];
 						};
 						home-manager.backupFileExtension = "bkp";
+						home-manager.sharedModules = [
+							sops-nix.homeManagerModules.sops
+						];
 					}
 				];
 			};
