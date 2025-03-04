@@ -53,13 +53,9 @@ in
 	# home.file.".config/hypr/hypridle.conf".source = "${root}/dotfiles/hypr/hypridle.conf";
 	wayland.windowManager.hyprland = {
 		enable = true;
-		plugins = [
-			# flakeInputs.hyprspace.packages.${system}.Hyprspace
-			# flakeInputs.hyprgrass.packages.${system}.default
-		];
 		extraConfig = "source = ./config.d/general.conf";
 		package = flakeInputs.hyprland.packages.${system}.hyprland;
-		catppuccin.enable = true;
+		portalPackage = flakeInputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
 	};
 	services = {
 		hyprpaper = {
