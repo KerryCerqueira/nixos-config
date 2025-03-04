@@ -19,12 +19,7 @@
 			url = "github:KerryCerqueira/zsh-config";
 			flake = false;
 		};
-		hyprland = {
-			type = "git";
-			url = "https://github.com/hyprwm/Hyprland";
-			submodules = true;
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		hyprland.url = "github:hyprwm/Hyprland";
 		hyprspace = {
 			url = "github:KZDKM/Hyprspace";
 			inputs.hyprland.follows = "hyprland";

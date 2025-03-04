@@ -18,12 +18,16 @@ in
 		./swaync.nix
 		./zathura.nix
 	];
-	catppuccin.pointerCursor.enable = true;
+	catppuccin = {
+		cursors.enable = true;
+		kvantum.enable = true;
+		hyprland.enable = true;
+		gtk.enable = true;
+	};
 	qt = {
 		enable = true;
 		platformTheme.name = "kvantum";
 		style.name = "kvantum";
-		style.catppuccin.enable = true;
 	};
 	gtk = {
 		enable = true;
@@ -31,7 +35,6 @@ in
 		# satisfy this dependency
 		font.name = "Noto Sans";
 		font.size = 10;
-		catppuccin.enable = true;
 		iconTheme.name = "Papirus-Dark";
 		cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";
 	};
@@ -53,13 +56,9 @@ in
 	# home.file.".config/hypr/hypridle.conf".source = "${root}/dotfiles/hypr/hypridle.conf";
 	wayland.windowManager.hyprland = {
 		enable = true;
-		plugins = [
-			# flakeInputs.hyprspace.packages.${system}.Hyprspace
-			# flakeInputs.hyprgrass.packages.${system}.default
-		];
 		extraConfig = "source = ./config.d/general.conf";
 		package = flakeInputs.hyprland.packages.${system}.hyprland;
-		catppuccin.enable = true;
+		portalPackage = flakeInputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
 	};
 	services = {
 		hyprpaper = {
