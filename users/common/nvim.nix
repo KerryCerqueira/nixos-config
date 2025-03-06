@@ -40,6 +40,7 @@ in {
 			python312Packages.flake8
 			lua-language-server
 			jdt-language-server
+			fish-lsp
 			taplo
 			pyright
 			ruff
@@ -54,6 +55,7 @@ in {
 			catppuccin-nvim
 			cmp-treesitter
 			cmp-vimtex
+			colorful-menu-nvim
 			conform-nvim
 			CopilotChat-nvim
 			copilot-cmp
