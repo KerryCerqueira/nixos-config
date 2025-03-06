@@ -573,11 +573,11 @@
     "nvim-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1740604304,
-        "narHash": "sha256-PjqI/PgHOtDuLqJamPOWWZ/oQm0WvJ0E6BCvQIIWD4c=",
+        "lastModified": 1741292346,
+        "narHash": "sha256-4BiRfcNTHV1n4VfVdSRyYp4mydRWXHTX9mx8Xcxq06o=",
         "owner": "KerryCerqueira",
         "repo": "nvim-config",
-        "rev": "352af8cc812f55e468faa5969b6d04d00b8c621c",
+        "rev": "730d75b626a43f9b7c922cd25203bf9b60aa7af3",
         "type": "github"
       },
       "original": {
@@ -733,11 +733,11 @@
     "zsh-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1740531774,
-        "narHash": "sha256-W36mGviEvSx2djVbSXnCZyrdizfIGbhYBwLT9vVBtZA=",
+        "lastModified": 1741299271,
+        "narHash": "sha256-CoafcLcWu+tXs8843o95VgDq58O/3EhxvXnDMy046k8=",
         "owner": "KerryCerqueira",
         "repo": "zsh-config",
-        "rev": "585b6ff1736af81ec8ba530810518ca4c4ec4f21",
+        "rev": "8f0ee84163fb898884c9f0a325839c788bdc9479",
         "type": "github"
       },
       "original": {

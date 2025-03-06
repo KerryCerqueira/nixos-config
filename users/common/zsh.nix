@@ -1,14 +1,14 @@
 { self, pkgs, flakeInputs, ... }:
 let
 	root = self;
+	zshDotfiles = flakeInputs.zsh-config;
+	zshPluginsText = builtins.readFile "${zshDotfiles}/zsh_plugins.conf";
+	zshPlugins = pkgs.lib.strings.splitString "\n" zshPluginsText;
 in {
 	home.packages = with pkgs; [
 		git
-		zsh
-		antidote
 		btop
 		fzf
-		atuin
 		eza
 		moar
 		tldr
@@ -16,34 +16,45 @@ in {
 		fd
 		ripgrep
 		bat
-		sshfs
 		bat-extras.batman
 		bat-extras.batgrep
 		bat-extras.batdiff
 		timg
 		yazi
 	];
-	home.file = {
-		".local/share/zsh/antidote/" = {
-			source = "${pkgs.antidote}/share/antidote";
+	xdg.configFile = {
+		"zsh/conf.d/" = {
+			source = "${zshDotfiles}/conf.d/";
 			recursive = true;
 		};
-		".config/zsh/" = {
-			source = "${flakeInputs.zsh-config}";
-			recursive = true;
-		};
-		".zshenv".text = "export ZDOTDIR=$HOME/.config/zsh/";
-		".config/bat/" = {
+		"bat/" = {
 			source = "${root}/dotfiles/bat/";
 			recursive = true;
 		};
-		".config/kitty/" = {
+		"kitty/" = {
 			source = "${root}/dotfiles/kitty/";
 			recursive = true;
 		};
-		".config/eza/" = {
+		"eza/" = {
 			source = "${root}/dotfiles/eza/";
 			recursive = true;
+		};
+	};
+	programs = {
+		zsh = {
+			enable = true;
+			dotDir = ".config/zsh";
+			initExtra = "source \"$ZDOTDIR\"/conf.d/conf.zsh";
+			antidote = {
+				enable = true;
+				plugins = zshPlugins;
+			};
+		};
+		oh-my-posh = {
+			enable = true;
+			settings = builtins.fromJSON (
+				builtins.readFile "${root}/dotfiles/oh-my-posh/config.json"
+			);
 		};
 	};
 }
