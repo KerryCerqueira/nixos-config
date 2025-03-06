@@ -44,7 +44,15 @@ in {
 		zsh = {
 			enable = true;
 			dotDir = ".config/zsh";
-			initExtra = "source \"$ZDOTDIR\"/conf.d/conf.zsh";
+			initExtra = # sh
+				''
+ if [[ $(ps -o command= -p "$PPID" | awk '{print $1}') != 'fish' ]]
+ then
+	 exec fish -l
+ else
+	 source "$ZDOTDIR"/conf.d/conf.zsh
+ fi
+				'';
 			antidote = {
 				enable = true;
 				plugins = zshPlugins;
