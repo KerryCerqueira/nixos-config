@@ -2,8 +2,9 @@
 
 {
 	programs = {
-		programs.zsh.enable = true;
-		programs.neovim = {
+		zsh.enable = true;
+		fish.enable = true;
+		neovim = {
 			enable = true;
 			defaultEditor = true;
 		};

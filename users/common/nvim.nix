@@ -115,7 +115,7 @@ in {
 			yazi-nvim
 		];
 		extraLuaConfig = # lua
-''
+			''
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 require("lazy").setup({
@@ -154,6 +154,6 @@ require("lazy").setup({
 	},
 	install = { missing = false, },
 })
-'';
+			'';
 	};
 }
