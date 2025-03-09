@@ -51,6 +51,22 @@
         "type": "github"
       }
     },
+    "fish-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1741364479,
+        "narHash": "sha256-yBxd/Iid7PobVeCf/xhsM+Fq1snr+Vy0l7jzH6LrX8E=",
+        "owner": "KerryCerqueira",
+        "repo": "fish-config",
+        "rev": "cef6cb951c0358b6965a58ab29f0e4cecd507cfd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KerryCerqueira",
+        "repo": "fish-config",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -612,6 +628,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "fish-config": "fish-config",
         "home-manager": "home-manager",
         "hyprgrass": "hyprgrass",
         "hyprland": "hyprland",

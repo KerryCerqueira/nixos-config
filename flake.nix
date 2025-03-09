@@ -19,6 +19,10 @@
 			url = "github:KerryCerqueira/zsh-config";
 			flake = false;
 		};
+		fish-config = {
+			url = "github:KerryCerqueira/fish-config";
+			flake = false;
+		};
 		hyprland.url = "github:hyprwm/Hyprland";
 		hyprspace = {
 			url = "github:KZDKM/Hyprspace";
