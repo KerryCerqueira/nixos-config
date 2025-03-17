@@ -33,9 +33,11 @@ in {
 			black
 			manix
 			lynx
-			texlive.combined.scheme-medium
+			texlive.combined.scheme-full
 			marksman
 			markdownlint-cli2
+			python312Packages.docformatter
+			python312Packages.isort
 			python312Packages.pylatexenc
 			python312Packages.flake8
 			lua-language-server
