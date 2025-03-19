@@ -55,8 +55,6 @@ in {
 			blink-cmp-copilot
 			bufferline-nvim
 			catppuccin-nvim
-			cmp-treesitter
-			cmp-vimtex
 			colorful-menu-nvim
 			conform-nvim
 			CopilotChat-nvim
@@ -87,7 +85,6 @@ in {
 			mini-comment
 			mini-icons
 			mini-jump
-			mini-map
 			mini-move
 			mini-pairs
 			mini-splitjoin
@@ -95,9 +92,9 @@ in {
 			mini-trailspace
 			neoconf-nvim
 			neodev-nvim
+			neogen
 			neogit
 			neo-tree-nvim
-			nvim-cmp
 			nvim-lint
 			nvim-lspconfig
 			nvim-treesitter.withAllGrammars
@@ -114,7 +111,6 @@ in {
 			snacks-nvim
 			vimtex
 			which-key-nvim
-			yazi-nvim
 		];
 		extraLuaConfig = # lua
 			''
