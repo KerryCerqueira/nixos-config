@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ ... }:
 
 {
 	imports = [
@@ -7,6 +7,7 @@
 		../common/steam.nix
 		../common/fonts.nix
 		../common/thunderbird.nix
+		../common/shell.nix
 	];
 	system.stateVersion = "23.11";
 	nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -44,12 +45,6 @@
 		};
 		printing.enable = true;
 	};
-	programs.zsh.enable = true;
-	users.defaultUserShell = pkgs.zsh;
-	programs.neovim = {
-		enable = true;
-		defaultEditor = true;
-	};
 	users.users.julie= {
 		isNormalUser = true;
 		description = "Julie Quigley";
@@ -58,7 +53,6 @@
 	users.users.kerry = {
 		isNormalUser = true;
 		description = "Kerry Cerqueira";
-		hashedPasswordFile = config.sops.secrets."hashedUserPasswords/kerry".path;
 		extraGroups = [ "networkmanager" "wheel" ];
 	};
 }

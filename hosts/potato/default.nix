@@ -1,5 +1,4 @@
-{ pkgs, config, ... }:
-
+{ ... }:
 
 {
 	imports = [
@@ -8,6 +7,7 @@
 		../common/gnome
 		../common/steam.nix
 		../common/fonts.nix
+		../common/shell.nix
 	];
 	system.stateVersion = "23.11";
 	nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -46,15 +46,7 @@
 		};
 		printing.enable = true;
 	};
-	programs = {
-		zsh.enable = true;
-		neovim = {
-			enable = true;
-			defaultEditor = true;
-		};
-	};
 	users = {
-		defaultUserShell = pkgs.zsh;
 		users.erika = {
 			isNormalUser = true;
 			description = "Erika";

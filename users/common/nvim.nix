@@ -33,13 +33,16 @@ in {
 			black
 			manix
 			lynx
-			texlive.combined.scheme-medium
+			texlive.combined.scheme-full
 			marksman
 			markdownlint-cli2
+			python312Packages.docformatter
+			python312Packages.isort
 			python312Packages.pylatexenc
 			python312Packages.flake8
 			lua-language-server
 			jdt-language-server
+			fish-lsp
 			taplo
 			pyright
 			ruff
@@ -52,8 +55,7 @@ in {
 			blink-cmp-copilot
 			bufferline-nvim
 			catppuccin-nvim
-			cmp-treesitter
-			cmp-vimtex
+			colorful-menu-nvim
 			conform-nvim
 			CopilotChat-nvim
 			copilot-cmp
@@ -83,7 +85,6 @@ in {
 			mini-comment
 			mini-icons
 			mini-jump
-			mini-map
 			mini-move
 			mini-pairs
 			mini-splitjoin
@@ -91,9 +92,9 @@ in {
 			mini-trailspace
 			neoconf-nvim
 			neodev-nvim
+			neogen
 			neogit
 			neo-tree-nvim
-			nvim-cmp
 			nvim-lint
 			nvim-lspconfig
 			nvim-treesitter.withAllGrammars
@@ -110,10 +111,9 @@ in {
 			snacks-nvim
 			vimtex
 			which-key-nvim
-			yazi-nvim
 		];
 		extraLuaConfig = # lua
-''
+			''
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 require("lazy").setup({
@@ -152,6 +152,6 @@ require("lazy").setup({
 	},
 	install = { missing = false, },
 })
-'';
+			'';
 	};
 }
