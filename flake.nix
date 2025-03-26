@@ -13,7 +13,7 @@
 		};
 		nvim-config = {
 			url = "github:KerryCerqueira/nvim-config";
-			flake = false;
+			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		zsh-config = {
 			url = "github:KerryCerqueira/zsh-config";
@@ -37,7 +37,7 @@
 		nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
 	};
 
-	outputs = { self, nixpkgs, home-manager, sops-nix, catppuccin, ... }@inputs : {
+	outputs = { self, nixpkgs, home-manager, sops-nix, catppuccin, nvim-config, ... }@inputs : {
 		nixosConfigurations = let
 			specialArgs = {
 				flakeInputs = builtins.removeAttrs inputs [
@@ -68,6 +68,7 @@
 							imports = [
 								./users/kerry
 								./users/kerry/hosts/lazarus
+								nvim-config.homeManagerModules.kerryNeovimConfig
 							];
 						};
 						home-manager.backupFileExtension = "bkp";
@@ -92,6 +93,7 @@
 								./users/kerry
 								./users/kerry/hosts/panza
 								./users/common/hyprland
+								nvim-config.homeManagerModules.kerryNeovimConfig
 							];
 						};
 						home-manager.backupFileExtension = "bkp";
@@ -116,12 +118,14 @@
 							imports = [
 								./users/erika
 								./users/erika/hosts/potato
+								nvim-config.homeManagerModules.kerryNeovimConfig
 							];
 						};
 						home-manager.users.kerry = {
 							imports = [
-									./users/kerry
-									./users/kerry/hosts/potato
+								./users/kerry
+								./users/kerry/hosts/potato
+								nvim-config.homeManagerModules.kerryNeovimConfig
 							];
 						};
 						home-manager.backupFileExtension = "bkp";

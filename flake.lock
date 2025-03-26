@@ -592,13 +592,17 @@
       }
     },
     "nvim-config": {
-      "flake": false,
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1742364044,
-        "narHash": "sha256-mmJAq2v5/MoGuU2fGAOha8G0j+aVG8e7H4aLsgJs1/E=",
+        "lastModified": 1743000758,
+        "narHash": "sha256-oMU2yzzBrCYYofg9uJFaBKGuZLR28SihJBVXtH8nMwY=",
         "owner": "KerryCerqueira",
         "repo": "nvim-config",
-        "rev": "43a565a416ef9bb57fa62a86b2628c0ba32ee3de",
+        "rev": "2d670b8690a8d5f76ee44430105b5d6048eacfbd",
         "type": "github"
       },
       "original": {
