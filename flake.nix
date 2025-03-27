@@ -15,13 +15,9 @@
 			url = "github:KerryCerqueira/nvim-config";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		zsh-config = {
+		shell-config = {
 			url = "github:KerryCerqueira/zsh-config";
-			flake = false;
-		};
-		fish-config = {
-			url = "github:KerryCerqueira/fish-config";
-			flake = false;
+			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		hyprland.url = "github:hyprwm/Hyprland";
 		hyprspace = {
@@ -68,7 +64,6 @@
 							imports = [
 								./users/kerry
 								./users/kerry/hosts/lazarus
-								nvim-config.homeManagerModules.kerryNeovimConfig
 							];
 						};
 						home-manager.backupFileExtension = "bkp";
@@ -93,7 +88,6 @@
 								./users/kerry
 								./users/kerry/hosts/panza
 								./users/common/hyprland
-								nvim-config.homeManagerModules.kerryNeovimConfig
 							];
 						};
 						home-manager.backupFileExtension = "bkp";
@@ -118,14 +112,12 @@
 							imports = [
 								./users/erika
 								./users/erika/hosts/potato
-								nvim-config.homeManagerModules.kerryNeovimConfig
 							];
 						};
 						home-manager.users.kerry = {
 							imports = [
 								./users/kerry
 								./users/kerry/hosts/potato
-								nvim-config.homeManagerModules.kerryNeovimConfig
 							];
 						};
 						home-manager.backupFileExtension = "bkp";

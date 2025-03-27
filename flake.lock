@@ -51,22 +51,6 @@
         "type": "github"
       }
     },
-    "fish-config": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1741364479,
-        "narHash": "sha256-yBxd/Iid7PobVeCf/xhsM+Fq1snr+Vy0l7jzH6LrX8E=",
-        "owner": "KerryCerqueira",
-        "repo": "fish-config",
-        "rev": "cef6cb951c0358b6965a58ab29f0e4cecd507cfd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "KerryCerqueira",
-        "repo": "fish-config",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -598,11 +582,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743000758,
-        "narHash": "sha256-oMU2yzzBrCYYofg9uJFaBKGuZLR28SihJBVXtH8nMwY=",
+        "lastModified": 1743087238,
+        "narHash": "sha256-7PKmHyb9u3keusAgooUSzrV6m6opuHVqEDgX+DQJ8Gk=",
         "owner": "KerryCerqueira",
         "repo": "nvim-config",
-        "rev": "2d670b8690a8d5f76ee44430105b5d6048eacfbd",
+        "rev": "1c09034d44067ff34461b6777ae649e54a61fd51",
         "type": "github"
       },
       "original": {
@@ -637,7 +621,6 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
-        "fish-config": "fish-config",
         "home-manager": "home-manager",
         "hyprgrass": "hyprgrass",
         "hyprland": "hyprland",
@@ -646,8 +629,28 @@
         "nixos-grub-themes": "nixos-grub-themes",
         "nixpkgs": "nixpkgs_5",
         "nvim-config": "nvim-config",
-        "sops-nix": "sops-nix",
-        "zsh-config": "zsh-config"
+        "shell-config": "shell-config",
+        "sops-nix": "sops-nix"
+      }
+    },
+    "shell-config": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1743088270,
+        "narHash": "sha256-ExxPU9rIcOz9o50oql6JSXJ4h401kkMfB+8EYYKKuN8=",
+        "owner": "KerryCerqueira",
+        "repo": "zsh-config",
+        "rev": "1921f9fb0203b3eb6a11e139e8181fd2d0fa2a66",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KerryCerqueira",
+        "repo": "zsh-config",
+        "type": "github"
       }
     },
     "sops-nix": {
@@ -753,22 +756,6 @@
       "original": {
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
-        "type": "github"
-      }
-    },
-    "zsh-config": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1741299271,
-        "narHash": "sha256-CoafcLcWu+tXs8843o95VgDq58O/3EhxvXnDMy046k8=",
-        "owner": "KerryCerqueira",
-        "repo": "zsh-config",
-        "rev": "8f0ee84163fb898884c9f0a325839c788bdc9479",
-        "type": "github"
-      },
-      "original": {
-        "owner": "KerryCerqueira",
-        "repo": "zsh-config",
         "type": "github"
       }
     }
