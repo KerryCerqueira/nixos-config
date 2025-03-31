@@ -1,4 +1,4 @@
-{ config, flakeInputs, ... }:
+{ config, ... }:
 
 {
 	imports = [
@@ -8,7 +8,7 @@
 		../common/fonts.nix
 		../common/thunderbird.nix
 		../common/shell.nix
-		flakeInputs.hyprland-config.nixosModules.hyprland-config
+		../common/gnome/minimal.nix
 	];
 	system.stateVersion = "23.11";
 	nix.settings.experimental-features = ["nix-command" "flakes"];

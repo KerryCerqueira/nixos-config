@@ -19,6 +19,7 @@
 			url = "github:KerryCerqueira/zsh-config";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		catppuccin.url = "github:catppuccin/nix";
 		hyprland-config.url = "github:KerryCerqueira/hyprland-config";
 		hyprls.url = "github:hyprland-community/hyprls";
 		nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";

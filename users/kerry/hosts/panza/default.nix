@@ -1,8 +1,20 @@
 { flakeInputs, ... }:
 {
-	imports = [
-		flakeInputs.hyprland-config.homeManagerModules.hyprland-config
-	];
+	imports = [ flakeInputs.catppuccin.homeModules.catppuccin ];
+	catppuccin = {
+		gtk.enable = true;
+		gtk.gnomeShellTheme = true;
+		cursors.enable = true;
+	};
+	gtk = {
+		enable = true;
+		#TODO: resolve this option if noto sans doesn't exist or add a mechanism to
+		# satisfy this dependency
+		font.name = "Noto Sans";
+		font.size = 10;
+		iconTheme.name = "Papirus-Dark";
+		cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";
+	};
 	sops = {
 		defaultSopsFile = ./secrets.yaml;
 		defaultSopsFormat = "yaml";
