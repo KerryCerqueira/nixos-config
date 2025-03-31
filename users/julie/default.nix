@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, flakeInputs, ... }:
 
 {
 	imports = [
-		../common/shell.nix
 		../common/libreoffice.nix
+		flakeInputs.nvim-config.homeManagerModules.nvim-config
+		flakeInputs.shell-config.homeManagerModules.shell-config
 	];
 	programs = {
 		home-manager.enable = true;
