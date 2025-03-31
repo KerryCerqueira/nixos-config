@@ -19,21 +19,19 @@
 			url = "github:KerryCerqueira/zsh-config";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		hyprland.url = "github:hyprwm/Hyprland";
-		hyprspace = {
-			url = "github:KZDKM/Hyprspace";
-			inputs.hyprland.follows = "hyprland";
-		};
-		hyprgrass = {
-			url = "github:horriblename/hyprgrass";
-			inputs.hyprland.follows = "hyprland";
-		};
+		hyprland-config.url = "github:KerryCerqueira/hyprland-config";
 		hyprls.url = "github:hyprland-community/hyprls";
-		catppuccin.url = "github:catppuccin/nix";
 		nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
 	};
 
-	outputs = { self, nixpkgs, home-manager, sops-nix, catppuccin, nvim-config, ... }@inputs : {
+	outputs = {
+		self,
+		nixpkgs,
+		home-manager,
+		sops-nix,
+		nvim-config,
+		...
+	}@inputs : {
 		nixosConfigurations = let
 			specialArgs = {
 				flakeInputs = builtins.removeAttrs inputs [
@@ -54,7 +52,6 @@
 				modules = [
 					./hosts/lazarus
 					sops-nix.nixosModules.sops
-					catppuccin.nixosModules.catppuccin
 					home-manager.nixosModules.home-manager {
 						home-manager.extraSpecialArgs = extraSpecialArgs;
 						home-manager.useGlobalPkgs = true;
@@ -78,7 +75,6 @@
 				modules = [
 					./hosts/panza
 					sops-nix.nixosModules.sops
-					catppuccin.nixosModules.catppuccin
 					home-manager.nixosModules.home-manager {
 						home-manager.extraSpecialArgs = extraSpecialArgs;
 						home-manager.useGlobalPkgs = true;
@@ -87,13 +83,11 @@
 							imports = [
 								./users/kerry
 								./users/kerry/hosts/panza
-								./users/common/hyprland
 							];
 						};
 						home-manager.backupFileExtension = "bkp";
 						home-manager.sharedModules = [
 							sops-nix.homeManagerModules.sops
-							catppuccin.homeManagerModules.catppuccin
 						];
 					}
 				];

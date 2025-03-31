@@ -3,8 +3,8 @@
 {
 	imports = [
 		../common/libreoffice.nix
-		flakeInputs.nvim-config.homeManagerModules.config
-		flakeInputs.shell-config.homeManagerModules.config
+		flakeInputs.nvim-config.homeManagerModules.nvim-config
+		flakeInputs.shell-config.homeManagerModules.shell-config
 	];
 	programs = {
 		home-manager.enable = true;

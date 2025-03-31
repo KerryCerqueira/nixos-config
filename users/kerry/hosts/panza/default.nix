@@ -1,6 +1,8 @@
-{ ... }:
+{ flakeInputs, ... }:
 {
-	imports = [ ./easyeffects.nix];
+	imports = [
+		flakeInputs.hyprland-config.homeManagerModules.hyprland-config
+	];
 	sops = {
 		defaultSopsFile = ./secrets.yaml;
 		defaultSopsFormat = "yaml";
@@ -14,9 +16,19 @@
 			};
 		};
 	};
-	services.syncthing = {
-		enable = true;
-		tray.enable = true;
-		tray.command = "syncthingtray --wait";
+	services = {
+		syncthing = {
+			enable = true;
+			tray.enable = true;
+			tray.command = "syncthingtray --wait";
+		};
+		easyeffects = {
+			enable = true;
+			preset = "AdvancedAutoGain";
+		};
+	};
+	xdg.configFile.".config/easyeffects/" = {
+		source = ./easyeffects;
+		recursive = true;
 	};
 }

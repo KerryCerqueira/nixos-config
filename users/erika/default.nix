@@ -4,8 +4,8 @@
 	imports = [
 		../common/vscode.nix
 		../common/libreoffice.nix
-		flakeInputs.nvim-config.homeManagerModules.config
-		flakeInputs.shell-config.homeManagerModules.config
+		flakeInputs.nvim-config.homeManagerModules
+		flakeInputs.shell-config.homeManagerModules
 	];
 	programs = {
 		home-manager.enable = true;

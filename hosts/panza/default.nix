@@ -1,14 +1,14 @@
-{ config, ... }:
+{ config, flakeInputs, ... }:
 
 {
 	imports = [
 		./hardware
 		../common/grub.nix
-		../common/hyprland
 		../common/steam.nix
 		../common/fonts.nix
 		../common/thunderbird.nix
 		../common/shell.nix
+		flakeInputs.hyprland-config.nixosModules.hyprland-config
 	];
 	system.stateVersion = "23.11";
 	nix.settings.experimental-features = ["nix-command" "flakes"];
