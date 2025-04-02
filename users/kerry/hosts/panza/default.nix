@@ -1,18 +1,6 @@
-{ flakeInputs, ... }:
+{ ... }:
 {
-	# imports = [ flakeInputs.catppuccin.homeModules.catppuccin ];
-	# catppuccin = {
-	# 	cursors.enable = true;
-	# };
-	# gtk = {
-	# 	enable = true;
-	# 	#TODO: resolve this option if noto sans doesn't exist or add a mechanism to
-	# 	# satisfy this dependency
-	# 	font.name = "Noto Sans";
-	# 	font.size = 10;
-	# 	iconTheme.name = "Papirus-Dark";
-	# 	cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";
-	# };
+	stateVersion = "23.11";
 	sops = {
 		defaultSopsFile = ./secrets.yaml;
 		defaultSopsFormat = "yaml";

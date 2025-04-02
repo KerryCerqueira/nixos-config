@@ -33,6 +33,14 @@
 		nvim-config,
 		...
 		}@inputs : {
+			homeConfigurations = {
+				"kerry@counter" = home-manager.lib.homeManagerConfiguration {
+					stateVersion = "25.05";
+					imports = [
+						./users/kerry/minimal.nix { flakeInputs = inputs; }
+					];
+				};
+			};
 			nixosConfigurations = let
 				specialArgs = {
 					flakeInputs = builtins.removeAttrs inputs [

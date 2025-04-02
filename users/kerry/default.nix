@@ -15,7 +15,6 @@
 	home = {
 		username = "kerry";
 		homeDirectory = "/home/kerry";
-		stateVersion = "23.11";
 		packages = with pkgs; [
 			keepassxc
 			gimp
