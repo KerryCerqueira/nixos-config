@@ -25,18 +25,17 @@
 		appindicator
 		caffeine
 		clipboard-indicator
-		extension-list
 		gsconnect
-		openweather-refined
 		places-status-indicator
 		auto-move-windows
 		launch-new-instance
 		removable-drive-menu
-		drive-activity-indicator
 		vitals
-		media-controls
 		quick-settings-tweaker
+		impatience
+		runcat
 	]);
 	services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 	programs.ssh.startAgent = true;
+	programs.dconf.enable = true;
 }
