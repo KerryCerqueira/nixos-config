@@ -1,25 +1,41 @@
-{ pkgs, lib,  ... }:
+{ pkgs, ... }:
 
 {
+	powerManagement.enable = true;
 	services.xserver.desktopManager.gnome.enable = true;
-	environment.gnome.excludePackages = ( with pkgs; [
-			gnome-photos
-			gnome-tour
-	]) ++ (with pkgs.gnome; [
+	services.xserver.excludePackages = [ pkgs.xterm ];
+	environment.gnome.excludePackages = with pkgs; [
+		orca
+		evince
+		geary
+		gnome-photos
+		gnome-tour
 		gnome-music
 		gnome-terminal
 		epiphany
-		geary
-		evince
+		gnome-text-editor
+		gnome-calendar
+		gnome-console
+		gnome-contacts
+		gnome-connections
+		gnome-music
 		totem
-		tali
-		iagno
-		hitori
-		atomix
+	];
+	environment.systemPackages = (with pkgs; [kitty]) ++ (with pkgs.gnomeExtensions; [
+		appindicator
+		caffeine
+		clipboard-indicator
+		gsconnect
+		places-status-indicator
+		auto-move-windows
+		launch-new-instance
+		removable-drive-menu
+		vitals
+		quick-settings-tweaker
+		impatience
+		runcat
 	]);
-	environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
-	services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-	services.gnome.gnome-keyring.enable = lib.mkForce false;
+	services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 	programs.ssh.startAgent = true;
 	programs.dconf.enable = true;
 }

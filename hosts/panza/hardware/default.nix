@@ -2,7 +2,6 @@
 
 {
 	imports = [
-		./battery.nix
 		./bluetooth.nix
 		./gpu.nix
 		./hardware-configuration.nix

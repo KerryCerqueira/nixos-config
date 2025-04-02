@@ -19,6 +19,7 @@
 			url = "github:KerryCerqueira/zsh-config";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		catppuccin.url = "github:catppuccin/nix";
 		hyprland-config.url = "github:KerryCerqueira/hyprland-config";
 		hyprls.url = "github:hyprland-community/hyprls";
 		nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
@@ -31,96 +32,95 @@
 		sops-nix,
 		nvim-config,
 		...
-	}@inputs : {
-		nixosConfigurations = let
-			specialArgs = {
-				flakeInputs = builtins.removeAttrs inputs [
-					"self"
-					"nixpkgs"
-				];
-			};
-			extraSpecialArgs = {
-				flakeInputs = builtins.removeAttrs inputs [
-					"nixpkgs"
-				];
-				inherit self;
-			};
-		in {
-			system = "x86_64-linux";
-			lazarus = nixpkgs.lib.nixosSystem {
-				inherit specialArgs;
-				modules = [
-					./hosts/lazarus
-					sops-nix.nixosModules.sops
-					home-manager.nixosModules.home-manager {
-						home-manager.extraSpecialArgs = extraSpecialArgs;
-						home-manager.useGlobalPkgs = true;
-						home-manager.useUserPackages = true;
-						home-manager.users.julie = import ./users/julie;
-						home-manager.users.kerry = {
-							imports = [
-								./users/kerry
-								./users/kerry/hosts/lazarus
+		}@inputs : {
+			nixosConfigurations = let
+				specialArgs = {
+					flakeInputs = builtins.removeAttrs inputs [
+						"self"
+						"nixpkgs"
+					];
+				};
+				extraSpecialArgs = {
+					flakeInputs = builtins.removeAttrs inputs [
+						"nixpkgs"
+					];
+					inherit self;
+				};
+			in {
+				lazarus = nixpkgs.lib.nixosSystem {
+					inherit specialArgs;
+					modules = [
+						./hosts/lazarus
+						sops-nix.nixosModules.sops
+						home-manager.nixosModules.home-manager {
+							home-manager.extraSpecialArgs = extraSpecialArgs;
+							home-manager.useGlobalPkgs = true;
+							home-manager.useUserPackages = true;
+							home-manager.users.julie = import ./users/julie;
+							home-manager.users.kerry = {
+								imports = [
+									./users/kerry
+									./users/kerry/hosts/lazarus
+								];
+							};
+							home-manager.backupFileExtension = "bkp";
+							home-manager.sharedModules = [
+								sops-nix.homeManagerModules.sops
 							];
-						};
-						home-manager.backupFileExtension = "bkp";
-						home-manager.sharedModules = [
-							sops-nix.homeManagerModules.sops
-						];
-					}
-				];
-			};
-			panza = nixpkgs.lib.nixosSystem {
-				inherit specialArgs;
-				modules = [
-					./hosts/panza
-					sops-nix.nixosModules.sops
-					home-manager.nixosModules.home-manager {
-						home-manager.extraSpecialArgs = extraSpecialArgs;
-						home-manager.useGlobalPkgs = true;
-						home-manager.useUserPackages = true;
-						home-manager.users.kerry = {
-							imports = [
-								./users/kerry
-								./users/kerry/hosts/panza
+						}
+					];
+				};
+				panza = nixpkgs.lib.nixosSystem {
+					inherit specialArgs;
+					modules = [
+						./hosts/panza
+						sops-nix.nixosModules.sops
+						home-manager.nixosModules.home-manager {
+							home-manager.extraSpecialArgs = extraSpecialArgs;
+							home-manager.useGlobalPkgs = true;
+							home-manager.useUserPackages = true;
+							home-manager.users.kerry = {
+								imports = [
+									./users/kerry
+									./users/kerry/hosts/panza
+								];
+							};
+							home-manager.backupFileExtension = "bkp";
+							home-manager.sharedModules = [
+								sops-nix.homeManagerModules.sops
 							];
-						};
-						home-manager.backupFileExtension = "bkp";
-						home-manager.sharedModules = [
-							sops-nix.homeManagerModules.sops
-						];
-					}
-				];
-			};
-			potato = nixpkgs.lib.nixosSystem {
-				inherit specialArgs;
-				modules = [
-					sops-nix.nixosModules.sops
-					./hosts/potato
-					home-manager.nixosModules.home-manager
-					{
-						home-manager.extraSpecialArgs = extraSpecialArgs;
-						home-manager.useGlobalPkgs = true;
-						home-manager.useUserPackages = true;
-						home-manager.users.erika = {
-							imports = [
-								./users/erika
-								./users/erika/hosts/potato
+						}
+					];
+				};
+				potato = nixpkgs.lib.nixosSystem {
+					inherit specialArgs;
+					modules = [
+						sops-nix.nixosModules.sops
+						./hosts/potato
+						home-manager.nixosModules.home-manager
+						{
+							home-manager.extraSpecialArgs = extraSpecialArgs;
+							home-manager.useGlobalPkgs = true;
+							home-manager.useUserPackages = true;
+							home-manager.users.erika = {
+								imports = [
+									./users/erika
+									./users/erika/hosts/potato
+								];
+							};
+							home-manager.users.kerry = {
+								imports = [
+									./users/kerry
+									./users/kerry/hosts/potato
+								];
+							};
+							home-manager.backupFileExtension = "bkp";
+							home-manager.sharedModules = [
+								sops-nix.homeManagerModules.sops
 							];
-						};
-						home-manager.users.kerry = {
-							imports = [
-								./users/kerry
-								./users/kerry/hosts/potato
-							];
-						};
-						home-manager.backupFileExtension = "bkp";
-						home-manager.sharedModules = [
-							sops-nix.homeManagerModules.sops
-						];
-					}
-				];
+						}
+					];
+				};
 			};
 		};
-	};
 }
