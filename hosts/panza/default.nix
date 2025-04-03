@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
 	imports = [
@@ -8,7 +8,13 @@
 		../common/fonts.nix
 		../common/thunderbird.nix
 		../common/shell.nix
-		../common/gnome/minimal.nix
+		../common/gnome
+	];
+	environment.gnome.excludePackages = with pkgs; [
+		evince
+		gnome-music
+		gnome-text-editor
+		gnome-connections
 	];
 	system.stateVersion = "23.11";
 	nix.settings.experimental-features = ["nix-command" "flakes"];
