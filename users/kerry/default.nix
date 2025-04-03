@@ -4,6 +4,7 @@
 	imports = [
 		../common/vscode.nix
 		../common/libreoffice.nix
+		../common/zathura
 		flakeInputs.nvim-config.homeManagerModules.nvim-config
 		flakeInputs.shell-config.homeManagerModules.shell-config
 	];
@@ -11,6 +12,7 @@
 		home-manager.enable = true;
 		firefox.enable = true;
 		obs-studio.enable = true;
+		zathura.enable = true;
 	};
 	home = {
 		username = "kerry";
