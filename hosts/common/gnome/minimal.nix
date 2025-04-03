@@ -25,7 +25,6 @@
 		appindicator
 		caffeine
 		clipboard-indicator
-		gsconnect
 		places-status-indicator
 		auto-move-windows
 		launch-new-instance
@@ -38,4 +37,8 @@
 	services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 	programs.ssh.startAgent = true;
 	programs.dconf.enable = true;
+	programs.kdeconnect = {
+		enable = true;
+		package = pkgs.gnomeExtensions.gsconnect;
+	};
 }
