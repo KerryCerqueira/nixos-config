@@ -11,10 +11,7 @@
 			url = "github:Mic92/sops-nix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		nvim-config = {
-			url = "github:KerryCerqueira/nvim-config";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		nvim-config.url = "github:KerryCerqueira/nvim-config";
 		shell-config = {
 			url = "github:KerryCerqueira/zsh-config";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +44,20 @@
 					inherit self;
 				};
 			in {
+				imp = nixpkgs.lib.nixosSystem {
+					inherit specialArgs;
+					modules = [
+						./hosts/imp
+						sops-nix.nixosModules.sops
+						home-manager.nixosModules.home-manager {
+							home-manager.extraSpecialArgs = extraSpecialArgs;
+							home-manager.useGlobalPkgs = true;
+							home-manager.useUserPackages = true;
+							home-manager.users.sara = import ./users/sara;
+							home-manager.backupFileExtension = "bkp";
+						}
+					];
+				};
 				lazarus = nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
