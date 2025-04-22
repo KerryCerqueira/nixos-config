@@ -48,7 +48,6 @@
 					inherit specialArgs;
 					modules = [
 						./hosts/imp
-						sops-nix.nixosModules.sops
 						home-manager.nixosModules.home-manager {
 							home-manager.extraSpecialArgs = extraSpecialArgs;
 							home-manager.useGlobalPkgs = true;
