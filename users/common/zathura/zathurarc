@@ -10,7 +10,6 @@ set completion-group-fg		    rgba(137,180,250,1)
 
 set statusbar-fg		          rgba(205,214,244,1)
 set statusbar-bg		          rgba(49,50,68,1)
-set guioptions none
 
 set notification-bg		        rgba(49,50,68,1)
 set notification-fg		        rgba(205,214,244,1)
