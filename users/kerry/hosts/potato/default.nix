@@ -1,6 +1,7 @@
 { ... }:
 
 {
+	home.stateVersion = "23.11";
 	sops = {
 		defaultSopsFile = ./secrets.yaml;
 		defaultSopsFormat = "yaml";
