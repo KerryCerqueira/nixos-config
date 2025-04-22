@@ -53,6 +53,7 @@
 			xkb.layout = "us";
 			xkb.variant = "";
 		};
+		fwupd.enable = true;
 		fprintd.enable = true;
 		printing.enable = true;
 	};
