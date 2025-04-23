@@ -5,6 +5,7 @@
 		../common/vscode.nix
 		../common/libreoffice.nix
 		../common/zathura
+		../common/kitty
 		flakeInputs.nvim-config.homeManagerModules.nvim-config
 		flakeInputs.shell-config.homeManagerModules.shell-config
 	];
@@ -18,6 +19,7 @@
 		username = "kerry";
 		homeDirectory = "/home/kerry";
 		packages = with pkgs; [
+			inkscape-with-extensions
 			keepassxc
 			gimp
 			discord

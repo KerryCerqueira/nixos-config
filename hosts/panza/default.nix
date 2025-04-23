@@ -5,7 +5,6 @@
 		./hardware
 		../common/grub.nix
 		../common/steam.nix
-		../common/fonts.nix
 		../common/thunderbird.nix
 		../common/shell.nix
 		../common/gnome

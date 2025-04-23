@@ -28,6 +28,7 @@
 		home-manager,
 		sops-nix,
 		nvim-config,
+		catppuccin,
 		...
 		}@inputs : {
 			homeConfigurations = {
@@ -35,7 +36,7 @@
 					pkgs = import nixpkgs { system = "x86_64-linux"; };
 					modules = [
 						{ home.stateVersion = "25.05"; }
-						./users/kerry/minimal.nix 
+						./users/kerry/minimal.nix
 					];
 					extraSpecialArgs = {
 						flakeInputs = builtins.removeAttrs inputs [
@@ -69,6 +70,9 @@
 							home-manager.useUserPackages = true;
 							home-manager.users.sara = import ./users/sara;
 							home-manager.backupFileExtension = "bkp";
+							home-manager.sharedModules = [
+								catppuccin.homeModules.catppuccin
+							];
 						}
 					];
 				};
@@ -91,6 +95,7 @@
 							home-manager.backupFileExtension = "bkp";
 							home-manager.sharedModules = [
 								sops-nix.homeManagerModules.sops
+								catppuccin.homeModules.catppuccin
 							];
 						}
 					];
@@ -113,6 +118,7 @@
 							home-manager.backupFileExtension = "bkp";
 							home-manager.sharedModules = [
 								sops-nix.homeManagerModules.sops
+								catppuccin.homeModules.catppuccin
 							];
 						}
 					];
@@ -142,6 +148,7 @@
 							home-manager.backupFileExtension = "bkp";
 							home-manager.sharedModules = [
 								sops-nix.homeManagerModules.sops
+								catppuccin.homeModules.catppuccin
 							];
 						}
 					];

@@ -6,7 +6,6 @@
 		../common/grub.nix
 		../common/gnome
 		../common/steam.nix
-		../common/fonts.nix
 		../common/shell.nix
 	];
 	system.stateVersion = "24.11";
