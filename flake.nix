@@ -35,7 +35,32 @@
 				"kerry@counter" = home-manager.lib.homeManagerConfiguration {
 					pkgs = import nixpkgs { system = "x86_64-linux"; };
 					modules = [
-						{ home.stateVersion = "25.05"; }
+						{
+							home = {
+								stateVersion = "25.05";
+								username = "kerry";
+								homeDirectory = "/home/kerry";
+							};
+						}
+						./users/kerry/minimal.nix
+					];
+					extraSpecialArgs = {
+						flakeInputs = builtins.removeAttrs inputs [
+							"nixpkgs"
+						];
+						inherit self;
+					};
+				};
+				"kcerqueira@cruncher" = home-manager.lib.homeManagerConfiguration {
+					pkgs = import nixpkgs { system = "x86_64-linux"; };
+					modules = [
+						{
+							home = {
+								stateVersion = "25.05";
+								username = "kcerqueira";
+								homeDirectory = "/home/kcerqueira";
+							};
+						}
 						./users/kerry/minimal.nix
 					];
 					extraSpecialArgs = {
