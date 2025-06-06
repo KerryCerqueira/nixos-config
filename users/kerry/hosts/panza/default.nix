@@ -2,15 +2,17 @@
 {
 	home.stateVersion = "23.11";
 	sops = {
-		defaultSopsFile = ./secrets.yaml;
 		defaultSopsFormat = "yaml";
-		age.keyFile = "/home/kerry/.config/sops/age/kerry_master.age";
-		secrets = {
+		secrets = let
+			sopsFile = ./secrets.yaml;
+		in {
 			"syncthing/cert" = {
 				path = "/home/kerry/.config/syncthing/cert.pem";
+				inherit sopsFile;
 			};
 			"syncthing/key" = {
 				path = "/home/kerry/.config/syncthing/key.pem";
+				inherit sopsFile;
 			};
 		};
 	};
@@ -25,8 +27,10 @@
 			preset = "AdvancedAutoGain";
 		};
 	};
-	xdg.configFile."easyeffects/" = {
-		source = ./easyeffects;
-		recursive = true;
+	xdg.configFile = {
+		"easyeffects/" = {
+			source = ./easyeffects;
+			recursive = true;
+		};
 	};
 }

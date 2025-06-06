@@ -1,4 +1,4 @@
-{ pkgs, flakeInputs, ... }:
+{ config, pkgs, flakeInputs, ... }:
 
 {
 	imports = [
@@ -33,5 +33,16 @@
 			spotify
 			whatsapp-for-linux
 		];
+	};
+	sops = {
+		defaultSopsFile = ./secrets.yaml;
+		defaultSopsFormat = "yaml";
+		age.keyFile = "/home/kerry/.config/sops/age/kerry_master.age";
+		secrets = {
+			"openai_api_key"  = {};
+		};
+		templates."openai_api_key" = {
+			content = "OPENAI_API_KEY=${config.sops.placeholder."openai_api_key"}";
+		};
 	};
 }
