@@ -34,10 +34,10 @@
 		};
 	};
 	services = {
+		displayManager.gdm.enable = true;
 		xserver = {
 			enable = true;
 			videoDrivers = ["nvidia"];
-			displayManager.gdm.enable = true;
 			xkb = {
 				layout = "us";
 				variant = "";

@@ -2,7 +2,7 @@
 
 {
 	powerManagement.enable = true;
-	services.xserver.desktopManager.gnome.enable = true;
+	services.desktopManager.gnome.enable = true;
 	services.xserver.excludePackages = [ pkgs.xterm ];
 	environment.gnome.excludePackages = with pkgs; [
 		orca

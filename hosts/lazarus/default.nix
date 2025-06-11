@@ -36,9 +36,9 @@
 			autoLogin.enable = true;
 			autoLogin.user = "julie";
 		};
+		desktopManager.plasma5.enable = true;
 		xserver = {
 			enable = true;
-			desktopManager.plasma5.enable = true;
 			xkb.layout = "us";
 			xkb.variant = "";
 		};
