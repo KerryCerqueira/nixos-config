@@ -34,6 +34,10 @@ creation_rules:
     key_groups:
       - age:
         - *kerry_master
+  - path_regex: ^users/kerry/hosts/claudius/secrets.yaml$
+    key_groups:
+      - age:
+        - *kerry_master
   - path_regex: ^users/kerry/hosts/potato/secrets.yaml$
     key_groups:
       - age:

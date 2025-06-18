@@ -73,6 +73,22 @@
         "type": "github"
       }
     },
+    "easyeffects-presets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735809067,
+        "narHash": "sha256-nXVtX0ju+Ckauo0o30Y+sfNZ/wrx3HXNCK05z7dLaFc=",
+        "owner": "JackHack96",
+        "repo": "EasyEffects-Presets",
+        "rev": "069195c4e73d5ce94a87acb45903d18e05bffdcc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JackHack96",
+        "repo": "EasyEffects-Presets",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -513,6 +529,22 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1750083401,
+        "narHash": "sha256-ynqbgIYrg7P1fAKYqe8I/PMiLABBcNDYG9YaAP/d/C4=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "61837d2a33ccc1582c5fabb7bf9130d39fee59ad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1744463964,
@@ -651,10 +683,12 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "easyeffects-presets": "easyeffects-presets",
         "home-manager": "home-manager",
         "hyprland-config": "hyprland-config",
         "hyprls": "hyprls",
         "nixos-grub-themes": "nixos-grub-themes",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",
         "nvim-config": "nvim-config",
         "shell-config": "shell-config",

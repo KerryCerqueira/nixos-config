@@ -20,6 +20,11 @@
 		hyprland-config.url = "github:KerryCerqueira/hyprland-config";
 		hyprls.url = "github:hyprland-community/hyprls";
 		nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
+		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+		easyeffects-presets = {
+			url = "github:JackHack96/EasyEffects-Presets";
+			flake = false;
+		};
 	};
 
 	outputs = {
@@ -85,6 +90,29 @@
 					inherit self;
 				};
 			in {
+				claudius = nixpkgs.lib.nixosSystem {
+					inherit specialArgs;
+					modules = [
+						./hosts/claudius
+						sops-nix.nixosModules.sops
+						home-manager.nixosModules.home-manager {
+							home-manager.extraSpecialArgs = extraSpecialArgs;
+							home-manager.useGlobalPkgs = true;
+							home-manager.useUserPackages = true;
+							home-manager.users.kerry = {
+								imports = [
+									./users/kerry
+									./users/kerry/hosts/claudius
+								];
+							};
+							home-manager.backupFileExtension = "bkp";
+							home-manager.sharedModules = [
+								sops-nix.homeManagerModules.sops
+								catppuccin.homeModules.catppuccin
+							];
+						}
+					];
+				};
 				imp = nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
@@ -138,6 +166,12 @@
 								imports = [
 									./users/kerry
 									./users/kerry/hosts/panza
+								];
+							};
+							home-manager.users.erika = {
+								imports = [
+									./users/erika
+									./users/erika/hosts/panza
 								];
 							};
 							home-manager.backupFileExtension = "bkp";

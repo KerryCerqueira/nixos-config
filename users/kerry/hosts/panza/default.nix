@@ -1,5 +1,8 @@
 { ... }:
 {
+	imports = [
+		../../../common/easyeffects.nix
+	];
 	home.stateVersion = "23.11";
 	sops = {
 		defaultSopsFormat = "yaml";
@@ -21,16 +24,6 @@
 			enable = true;
 			tray.enable = true;
 			tray.command = "syncthingtray --wait";
-		};
-		easyeffects = {
-			enable = true;
-			preset = "AdvancedAutoGain";
-		};
-	};
-	xdg.configFile = {
-		"easyeffects/" = {
-			source = ./easyeffects;
-			recursive = true;
 		};
 	};
 }
