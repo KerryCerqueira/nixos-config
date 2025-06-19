@@ -90,6 +90,28 @@
 					inherit self;
 				};
 			in {
+				sigmund = nixpkgs.lib.nixosSystem {
+					modules = [
+						./hosts/sigmund
+						sops-nix.nixosModules.sops
+						home-manager.nixosModules.home-manager {
+							home-manager.extraSpecialArgs = extraSpecialArgs;
+							home-manager.useGlobalPkgs = true;
+							home-manager.useUserPackages = true;
+							home-manager.users.kerry = {
+								imports = [
+									./users/kerry
+									./users/kerry/hosts/sigmund
+								];
+							};
+							home-manager.backupFileExtension = "bkp";
+							home-manager.sharedModules = [
+								sops-nix.homeManagerModules.sops
+								catppuccin.homeModules.catppuccin
+							];
+						}
+					];
+				};
 				claudius = nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
