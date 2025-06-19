@@ -91,6 +91,7 @@
 				};
 			in {
 				sigmund = nixpkgs.lib.nixosSystem {
+					inherit specialArgs;
 					modules = [
 						./hosts/sigmund
 						sops-nix.nixosModules.sops

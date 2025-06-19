@@ -42,8 +42,14 @@ You can then find the keypair in `./myconfig/key.pem` etc.
 
 - Set gnome keyboard shortcuts, interface settings, and add google and
 microsoft accounts
+- Configure gnome extensions
 - Set keepassxc interface settings and initialize ssh-agent
 - Log into firefox sync, log browser into github, gmail, and outlook
+- Log into thunderbird accounts
+- Configure keepassxc firefox extension
+- run `gh auth login`
 - Set background image and profile image
 - Log into steam
 - Add empty `extra.lua` to `~/.config/nvim/lua/extra/`
+- deploy git config
+
