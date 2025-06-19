@@ -7,7 +7,7 @@
 		../common/steam.nix
 		../common/thunderbird.nix
 		../common/shell.nix
-		../common/gnome
+		../common/gnome.nix
 	];
 	environment.gnome.excludePackages = with pkgs; [
 		evince

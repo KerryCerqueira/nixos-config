@@ -4,7 +4,7 @@
 	imports = [
 		./hardware
 		../common/grub.nix
-		../common/gnome
+		../common/gnome.nix
 		../common/steam.nix
 		../common/shell.nix
 	];
