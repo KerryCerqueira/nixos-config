@@ -43,6 +43,10 @@
 				path = "/home/kerry/.config/sops/age/kerry_lazarus.age";
 				owner = "kerry";
 			};
+			"ageKeys/kerryClaudius" = {
+				path = "/home/kerry/.config/sops/age/kerry_claudius.age";
+				owner = "kerry";
+			};
 		};
 	};
 	services = {

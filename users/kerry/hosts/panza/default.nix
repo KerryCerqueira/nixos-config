@@ -5,17 +5,15 @@
 	];
 	home.stateVersion = "23.11";
 	sops = {
+		defaultSopsFile = ./secrets.yaml;
 		defaultSopsFormat = "yaml";
-		secrets = let
-			sopsFile = ./secrets.yaml;
-		in {
+		age.keyFile = "/home/kerry/.config/sops/age/kerry_panza.age";
+		secrets = {
 			"syncthing/cert" = {
 				path = "/home/kerry/.config/syncthing/cert.pem";
-				inherit sopsFile;
 			};
 			"syncthing/key" = {
 				path = "/home/kerry/.config/syncthing/key.pem";
-				inherit sopsFile;
 			};
 		};
 	};
