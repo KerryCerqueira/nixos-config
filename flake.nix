@@ -113,22 +113,6 @@
 						}
 					];
 				};
-				imp = nixpkgs.lib.nixosSystem {
-					inherit specialArgs;
-					modules = [
-						./hosts/imp
-						home-manager.nixosModules.home-manager {
-							home-manager.extraSpecialArgs = extraSpecialArgs;
-							home-manager.useGlobalPkgs = true;
-							home-manager.useUserPackages = true;
-							home-manager.users.sara = import ./users/sara;
-							home-manager.backupFileExtension = "bkp";
-							home-manager.sharedModules = [
-								catppuccin.homeModules.catppuccin
-							];
-						}
-					];
-				};
 				lazarus = nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
