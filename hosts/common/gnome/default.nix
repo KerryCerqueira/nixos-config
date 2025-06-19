@@ -24,18 +24,19 @@
 	environment.systemPackages = (with pkgs; [
 		kitty
 	]) ++ (with pkgs.gnomeExtensions; [
-		appindicator
-		caffeine
-		clipboard-indicator
-		places-status-indicator
-		auto-move-windows
-		launch-new-instance
-		removable-drive-menu
-		vitals
-		quick-settings-tweaker
-		impatience
-		runcat
-	]);
+			appindicator
+			caffeine
+			clipboard-indicator
+			easyeffects-preset-selector
+			places-status-indicator
+			auto-move-windows
+			launch-new-instance
+			removable-drive-menu
+			vitals
+			quick-settings-tweaker
+			impatience
+			runcat
+		]);
 	services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 	programs.ssh.startAgent = true;
 	programs.dconf.enable = true;
