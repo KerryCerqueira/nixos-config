@@ -38,7 +38,6 @@
 			runcat
 		]);
 	services.udev.packages = with pkgs; [ gnome-settings-daemon ];
-	programs.ssh.startAgent = true;
 	programs.dconf.enable = true;
 	programs.kdeconnect = {
 		enable = true;
