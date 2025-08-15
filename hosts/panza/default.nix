@@ -16,7 +16,11 @@
 		gnome-connections
 	];
 	system.stateVersion = "23.11";
-	nix.settings.experimental-features = ["nix-command" "flakes"];
+	nix.settings.experimental-features = [
+		"nix-command"
+		"flakes"
+		"pipe-operators"
+	];
 	nixpkgs.config.allowUnfree = true;
 	networking.hostName = "panza";
 	networking.networkmanager.enable = true;

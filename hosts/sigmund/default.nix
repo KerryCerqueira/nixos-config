@@ -15,7 +15,11 @@
 		gnome-connections
 	];
 	system.stateVersion = "24.11";
-	nix.settings.experimental-features = ["nix-command" "flakes"];
+	nix.settings.experimental-features = [
+		"nix-command"
+		"flakes"
+		"pipe-operators"
+	];
 	nixpkgs.config.allowUnfree = true;
 	networking.hostName = "sigmund";
 	networking.networkmanager.enable = true;
