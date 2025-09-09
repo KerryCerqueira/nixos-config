@@ -3,7 +3,19 @@
 	imports = [
 		../../../common/easyeffects.nix
 	];
-	home.stateVersion = "24.11";
+	home = {
+		stateVersion = "24.11";
+		file.".ssh/config".text = /*sshconfig*/ ''
+		Host *
+			IdentityFile ~/.ssh/id_ed25519
+			IdentitiesOnly yes
+			ServerAliveInterval 15
+			ServerAliveCountMax 3
+			AddKeysToAgent yes
+
+		Include ~/.ssh/config.d/*.conf
+		'';
+	};
 	sops = {
 		defaultSopsFile = ./secrets.yaml;
 		defaultSopsFormat = "yaml";
@@ -18,6 +30,12 @@
 			"apiKeys/tavily" = {};
 			"apiKeys/huggingface" = {};
 			"apiKeys/openai" = {};
+			"ssh/identity/private" = {
+				path = "/home/kerry/.ssh/id_ed25519";
+			};
+			"ssh/identity/public" = {
+				path = "/home/kerry/.ssh/id_ed25519.pub";
+			};
 		};
 	};
 	xdg.configFile."nvim/lua/secrets/tavily.lua".text = let
