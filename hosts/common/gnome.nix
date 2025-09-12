@@ -29,15 +29,15 @@
 			kitty
 		]) ++ (with pkgs.gnomeExtensions; [
 				appindicator
+				auto-move-windows
 				caffeine
 				clipboard-indicator
 				easyeffects-preset-selector
+				paperwm
 				places-status-indicator
-				auto-move-windows
 				launch-new-instance
 				removable-drive-menu
 				vitals
-				quick-settings-tweaker
 				impatience
 				runcat
 			]);
