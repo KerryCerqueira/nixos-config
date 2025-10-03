@@ -21,6 +21,7 @@
 		packages = with pkgs; [
 			obsidian
 			inkscape-with-extensions
+			ipe
 			keepassxc
 			gimp
 			discord

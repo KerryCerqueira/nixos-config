@@ -9,12 +9,6 @@
 		../common/shell.nix
 		../common/gnome.nix
 	];
-	environment.gnome.excludePackages = with pkgs; [
-		evince
-		gnome-music
-		gnome-text-editor
-		gnome-connections
-	];
 	system.stateVersion = "24.11";
 	nix.settings.experimental-features = [
 		"nix-command"

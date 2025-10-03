@@ -1,8 +1,5 @@
 { config, ... }:
 {
-	imports = [
-		../../../common/easyeffects.nix
-	];
 	home = {
 		stateVersion = "24.11";
 		file.".ssh/config".text = /*sshconfig*/ ''

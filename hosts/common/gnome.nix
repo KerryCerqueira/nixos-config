@@ -10,14 +10,11 @@
 	environment = {
 		gnome.excludePackages = with pkgs; [
 			orca
-			evince
 			geary
-			gnome-photos
 			gnome-tour
 			gnome-music
 			gnome-terminal
 			epiphany
-			gnome-text-editor
 			gnome-calendar
 			gnome-console
 			gnome-contacts
