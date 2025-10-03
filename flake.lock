@@ -643,11 +643,11 @@
     },
     "nvim-config": {
       "locked": {
-        "lastModified": 1757704769,
-        "narHash": "sha256-irs+MybtojZl1y8lIBTERFaXKc8cOSWNVUJViuSj/bc=",
+        "lastModified": 1759197305,
+        "narHash": "sha256-3/5tR0JEm6PAghDR6GRVArWBPYzuT0cSepU7jLOoMhg=",
         "owner": "KerryCerqueira",
         "repo": "nvim-config",
-        "rev": "290efa943031d53fecb32639740b95b33d4676c8",
+        "rev": "249a2982875ad65aa91454ff1f1f986406b0ee22",
         "type": "github"
       },
       "original": {
@@ -702,11 +702,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757465536,
-        "narHash": "sha256-5UlqI/gzn67JGQWw9vbwr+xJccM7m0PBy94zVzS30/8=",
+        "lastModified": 1759515417,
+        "narHash": "sha256-K0z05wgNNRkH9D6lJS7R1rh8TBDAuxBfeHH+rPnn75Q=",
         "owner": "KerryCerqueira",
         "repo": "zsh-config",
-        "rev": "6d4d2a629507d88794e16eaa17e3bfc474a11971",
+        "rev": "736c45dd9e88dfab22140c1f853972463b8eb029",
         "type": "github"
       },
       "original": {
