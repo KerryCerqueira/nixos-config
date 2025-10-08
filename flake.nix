@@ -2,40 +2,51 @@
 	description = "Kerry Cerqueira's NixOS system configurations.";
 
 	inputs = {
-		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+		catppuccin.url = "github:catppuccin/nix";
+		easyeffects-presets = {
+			url = "github:JackHack96/EasyEffects-Presets";
+			flake = false;
+		};
+		flake-utils.url = "github:numtide/flake-utils";
 		home-manager = {
 			url = "github:nix-community/home-manager";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+		hyprland-config.url = "github:KerryCerqueira/hyprland-config";
+		hyprls.url = "github:hyprland-community/hyprls";
+		nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
+		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+		nvim-config.url = "github:KerryCerqueira/nvim-config";
+		shell-config = {
+			url = "github:KerryCerqueira/zsh-config";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		sops-nix = {
 			url = "github:Mic92/sops-nix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		nvim-config.url = "github:KerryCerqueira/nvim-config";
-		shell-config = {
-			url = "github:KerryCerqueira/zsh-config";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-		catppuccin.url = "github:catppuccin/nix";
-		hyprland-config.url = "github:KerryCerqueira/hyprland-config";
-		hyprls.url = "github:hyprland-community/hyprls";
-		nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
-		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-		easyeffects-presets = {
-			url = "github:JackHack96/EasyEffects-Presets";
-			flake = false;
-		};
 	};
 
 	outputs = {
 		self,
-		nixpkgs,
-		home-manager,
-		sops-nix,
-		nvim-config,
 		catppuccin,
+		flake-utils,
+		home-manager,
+		nixpkgs,
+		nvim-config,
+		sops-nix,
 		...
-		}@inputs : {
+		}@inputs :
+		flake-utils.lib.eachDefaultSystem (system:
+			let
+				shellArgs = inputs // { inherit system; };
+				data-munge = (import ./shells/data-munge.nix) shellArgs;
+			in {
+				devShells.data-munge = data-munge.shell;
+				apps.data-munge-server = data-munge.server;
+			}
+		) // {
 			homeConfigurations = {
 				"kerry@counter" = home-manager.lib.homeManagerConfiguration {
 					pkgs = import nixpkgs { system = "x86_64-linux"; };
